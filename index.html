@@ -1,0 +1,718 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Novena De Aguinaldos 2025</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            scroll-behavior: smooth;
+            /* 1. APPLY NIGHT SKY BACKGROUND TO THE ENTIRE BODY (Working URL) */
+            background-image: url('https://i.imgur.com/5CmW4Z9.png'); 
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            min-height: 100vh;
+            background-color: #000033; 
+            position: relative;
+        }
+
+        /* 2. OVERLAY FOR BETTER TEXT READABILITY */
+        body::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.75);
+            z-index: -1; 
+        }
+        
+        .content-container {
+            z-index: 2;
+            position: relative;
+            max-width: 1024px; /* Setting a Max Width for content */
+        }
+
+        /* Styling for the header container to manage the background and blur */
+        .header-container {
+            /* Ensures the backdrop-blur property works on the header background */
+            background: rgba(76, 29, 149, 0.7); /* bg-purple-900/70 */
+        }
+        
+        /* Section cards for better contrast against the dark background */
+        .section-card {
+            background-color: rgba(255, 255, 255, 0.08); /* Light transparency */
+        }
+
+        /* Accordion transition for max-height */
+        .accordion-content {
+            transition: max-height 0.5s ease-in-out, opacity 0.5s ease-in-out, padding 0.3s;
+            max-height: 0;
+            opacity: 0;
+            overflow: hidden;
+            padding-top: 0;
+            padding-bottom: 0;
+        }
+
+        .accordion-content.open {
+            max-height: 1000px; /* Large value to accommodate content */
+            opacity: 1;
+            padding-top: 0.75rem; 
+            padding-bottom: 1rem; 
+        }
+        
+        .icon-rotate.open {
+            transform: rotate(180deg);
+        }
+
+        /* --- Custom Styles for Memory Game --- */
+        .memory-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 10px;
+            padding: 10px;
+            background: rgba(0, 0, 0, 0.2);
+            border-radius: 12px;
+        }
+
+        .memory-card {
+            height: 80px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 2.5rem;
+            cursor: pointer;
+            background-color: #4c1d95; /* purple-900 */
+            border-radius: 10px;
+            transition: transform 0.6s, background-color 0.3s;
+            transform-style: preserve-3d;
+            position: relative;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+            border: 2px solid #a78bfa; /* violet-400 */
+        }
+
+        .memory-card.flipped {
+            background-color: #fcd34d; /* yellow-300 */
+            color: #4c1d95; /* purple-900 */
+        }
+
+        .memory-card.matched {
+            background-color: #10b981; /* emerald-500 */
+            color: white;
+            opacity: 0.8;
+            pointer-events: none;
+        }
+        
+        .memory-card.disabled {
+            pointer-events: none;
+        }
+        
+        /* Ensure card content is always centered */
+        .card-inner {
+            width: 100%;
+            height: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            /* Hide the symbol when not flipped */
+            color: transparent; 
+        }
+
+        .memory-card.flipped .card-inner,
+        .memory-card.matched .card-inner {
+            color: inherit;
+        }
+
+        /* Mobile adjustments for card size */
+        @media (max-width: 640px) {
+            .memory-card {
+                height: 60px;
+                font-size: 2rem;
+            }
+        }
+    </style>
+</head>
+<body class="bg-gray-900 text-white">
+
+    <div class="content-container mx-auto p-6"> 
+
+        <!-- --- Header Section (Updated for Flex Layout) --- -->
+        <header class="header-container py-6 rounded-xl shadow-2xl backdrop-blur-sm mb-6">
+            
+            <div class="flex items-center justify-between px-4 sm:px-8 gap-4">
+                
+                <!-- LOGO: Top Left -->
+                <img 
+                    src="https://i.imgur.com/uJ0MHk2.png" 
+                    onerror="this.onerror=null; this.src='https://placehold.co/100x50/FFFFFF/000000?text=LOGO';" 
+                    alt="Logo Colombian Products And Services"
+                    class="h-24 w-auto object-contain rounded-lg shadow-xl"
+                >
+
+                <!-- Text Content (Center) -->
+                <div class="flex-grow text-center mx-2 sm:mx-4 min-w-0">
+                    <h1 class="text-3xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight text-yellow-300 whitespace-normal">Novena De Aguinaldos 2025</h1>
+                    <p class="text-md sm:text-xl font-medium text-purple-200">Diciembre 21, 6:30 PM</p>
+                    <p class="mt-2 text-xs sm:text-sm italic text-gray-300 hidden md:block">Merry Christmas and Best Wishes for a Joyous Holiday</p>
+                </div>
+
+                <!-- DONKEY IMAGE: Top Right -->
+                <img 
+                    src="https://i.imgur.com/ty0vhEp.png" 
+                    onerror="this.onerror=null; this.src='https://placehold.co/64x64/8B4513/FFFFFF?text=Donkey';" 
+                    alt="Donkey Illustration"
+                    class="h-24 w-auto object-cover rounded-full shadow-xl"
+                >
+            </div>
+            
+        </header>
+
+        <!-- --- Sticky Navigation Bar (NEW) --- -->
+        <nav class="sticky top-0 z-30 bg-purple-900/90 backdrop-blur-md rounded-b-xl shadow-2xl mb-8 border-b border-yellow-400">
+            <div class="flex justify-around text-center py-2 text-sm sm:text-base font-semibold">
+                <a href="#programa" class="p-2 hover:bg-yellow-500 hover:text-purple-900 rounded-lg transition duration-200">Programa</a>
+                <a href="#oraciones" class="p-2 hover:bg-yellow-500 hover:text-purple-900 rounded-lg transition duration-200">Oraciones</a>
+                <a href="#juegos" class="p-2 hover:bg-yellow-500 hover:text-purple-900 rounded-lg transition duration-200">Juegos</a>
+                <a href="#info" class="p-2 hover:bg-yellow-500 hover:text-purple-900 rounded-lg transition duration-200">Agradecimientos</a>
+            </div>
+        </nav>
+
+        <!-- --- Live Nativity Section --- -->
+        <section class="mb-12 section-card p-8 rounded-xl shadow-lg border border-purple-700">
+            <h2 class="text-4xl font-bold text-center mb-6 text-pink-300">PESEBRE EN VIVO (Live Nativity)</h2>
+
+            <div class="flex flex-col md:flex-row items-center gap-8">
+                <!-- Nativity Image - WORKING URL -->
+                <div class="md:w-1/2">
+                    <img
+                        id="nativityImage"
+                        src="https://i.imgur.com/MiYCorP.png" 
+                        alt="Nativity Scene"
+                        class="w-full h-auto rounded-xl shadow-2xl object-cover" 
+                        onerror="this.onerror=null; this.src='https://placehold.co/600x400/312e81/ffffff?text=Nativity+Image+Broken';"
+                    >
+                </div>
+
+                <div class="md:w-1/2">
+                    <p class="text-lg mb-4 text-gray-200 leading-relaxed">
+                        El nacimiento de Jesús marcó la esperanza en el mundo entero, deja que la Navidad te envuelva de AMOR. Feliz Navidad a todos los que comparten el deseo de un mundo mejor, lleno de paz y esperanza.
+                    </p>
+                    <p class="text-sm font-semibold text-yellow-300">Anfitrión Principal: Colombian Products</p>
+                </div>
+            </div>
+
+            <!-- Location Block (MOVED HERE) -->
+            <div class="section-card p-6 rounded-2xl shadow-xl mt-8 border border-yellow-500 bg-purple-900/50">
+                <h3 class="text-2xl font-bold text-yellow-300 mb-3 flex items-center">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-map-pin mr-2 text-yellow-400"><path d="M12 21.7c-4.4-4.4-8-7-8-10.7C4 6 8 2 12 2s8 4 8 9c0 3.7-3.6 6.3-8 10.7z"/><circle cx="12" cy="11" r="3"/></svg>
+                    Lugar del Evento
+                </h3>
+                <p class="text-gray-300 font-medium">Colombian Products And Services</p>
+                <p class="text-gray-400">11301 South Orange Blossom Trail, Suite A107, Orlando, FL 32837</p>
+                <a 
+                    href="https://www.google.com/maps/search/11301+South+Orange+Blossom+Trail,+Suite+A107,+Orlando,+FL+32837" 
+                    target="_blank" 
+                    rel="noopener noreferrer" 
+                    class="inline-block mt-3 px-4 py-2 bg-yellow-500 text-purple-900 font-bold rounded-lg shadow hover:bg-yellow-600 transition duration-150"
+                >
+                    Ver en Mapa
+                </a>
+            </div>
+        </section>
+
+        <!-- --- Program Section (ID ADDED) --- -->
+        <section id="programa" class="mb-12 section-card p-8 rounded-xl shadow-lg border border-purple-700">
+            <h2 class="text-3xl font-bold mb-6 text-center text-pink-300">PROGRAMA</h2>
+            <div class="grid md:grid-cols-2 gap-6 text-gray-200">
+                <div>
+                    <ul class="space-y-3">
+                        <li class="p-3 bg-purple-800/50 rounded-lg shadow-md"><span class="font-bold text-yellow-400">6:00 PM - 6:40 PM:</span> Llegada asistentes</li>
+                        <li class="p-3 bg-purple-800/50 rounded-lg shadow-md"><span class="font-bold text-yellow-400">6:40 PM - 7:00 PM:</span> Dinámicas de Apertura</li>
+                        <li class="p-3 bg-purple-800/50 rounded-lg shadow-md"><span class="font-bold text-yellow-400">7:00 PM - 7:20 PM:</span> Cortometraje de Navidad / Tema: Que canten los niños</li>
+                        <li class="p-3 bg-purple-800/50 rounded-lg shadow-md"><span class="font-bold text-yellow-400">7:20 PM - 7:30 PM:</span> Historia de Navidad para Niños por Hector Isaza</li>
+                    </ul>
+                </div>
+                <div>
+                    <ul class="space-y-3">
+                        <li class="p-3 bg-purple-800/50 rounded-lg shadow-md"><span class="font-bold text-yellow-400">7:30 PM - 8:30 PM:</span> Novena e Interpretación de Villancicos</li>
+                        <li class="p-3 bg-purple-800/50 rounded-lg shadow-md"><span class="font-bold text-yellow-400"></span> Ceremonia de luz (velas y peticiones)</li>
+                        <li class="p-3 bg-purple-800/50 rounded-lg shadow-md"><span class="font-bold text-yellow-400"></span> Ceremonia por la Paz (Globos)</li>
+                        <li class="p-3 bg-purple-800/50 rounded-lg shadow-md"><span class="font-bold text-yellow-400"></span> Presentación Musical y Compartir - Cierre</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- --- Oraciones y Lecturas (Accordion) --- -->
+        <section id="oraciones" class="mb-12">
+            <h2 class="text-4xl font-extrabold text-yellow-300 mb-6 border-b-4 border-pink-300 pb-2 bg-purple-900/50 p-2 rounded-t-lg shadow-md">
+                Oraciones y Consideraciones
+            </h2>
+            <p class="text-gray-300 mb-6 px-2">
+                A continuación, encuentra el texto completo de las oraciones para que puedas seguir la Novena y participar activamente.
+            </p>
+            <div id="accordion-container">
+                <!-- Accordion items will be generated here by JavaScript -->
+            </div>
+        </section>
+
+        <!-- --- Juegos y Entretenimiento --- -->
+        <section id="juegos" class="mb-12">
+            <h2 class="text-4xl font-extrabold text-yellow-300 mb-6 border-b-4 border-pink-300 pb-2 bg-purple-900/50 p-2 rounded-t-lg shadow-md">
+                Juegos y Entretenimiento
+            </h2>
+            <div class="grid md:grid-cols-2 gap-6">
+                
+                <!-- Game 1: Trivia Game -->
+                <div class="section-card p-6 rounded-xl shadow-xl border-t-4 border-pink-300">
+                    <h3 class="text-2xl font-bold mb-3 flex items-center text-pink-300">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-gamepad-2 mr-2"><path d="M21 12v3a1 1 0 0 1-1 1h-2a1 1 0 0 1-1-1v-3a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1Z"/><path d="M3 12v3a1 1 0 0 0 1 1h2a1 1 0 0 0 1-1v-3a1 1 0 0 0-1-1H4a1 1 0 0 0-1 1Z"/><path d="M12 19h1v-1h-1v1Z"/><path d="M10 19h1v-1h-1v1Z"/><path d="M14 19h1v-1h-1v1Z"/><path d="M12 17h1v-1h-1v1Z"/><path d="M10 17h1v-1h-1v1Z"/><path d="M14 17h1v-1h-1v1Z"/><path d="M12 15h1v-1h-1v1Z"/><path d="M10 15h1v-1h-1v1Z"/><path d="M14 15h1v-1h-1v1Z"/><path d="M12 13h1v-1h-1v1Z"/><path d="M10 13h1v-1h-1v1Z"/><path d="M14 13h1v-1h-1v1Z"/><path d="M12 11h1v-1h-1v1Z"/><path d="M10 11h1v-1h-1v1Z"/><path d="M14 11h1v-1h-1v1Z"/><path d="M12 9h1v-1h-1v1Z"/><path d="M10 9h1v-1h-1v1Z"/><path d="M14 9h1v-1h-1v1Z"/><path d="M12 7h1v-1h-1v1Z"/><path d="M10 7h1v-1h-1v1Z"/><path d="M14 7h1v-1h-1v1Z"/><path d="M12 5h1v-1h-1v1Z"/><path d="M10 5h1v-1h-1v1Z"/><path d="M14 5h1v-1h-1v1Z"/><path d="M12 3h1v-1h-1v1Z"/><path d="M10 3h1v-1h-1v1Z"/><path d="M14 3h1v-1h-1v1Z"/></svg>
+                        Novena Trivia
+                    </h3>
+                    <p class="text-sm mb-4 text-gray-400">
+                        <strong>¿Cuánto sabes de la Navidad?</strong>
+                    </p>
+                    <div id="trivia-game-container" class="mt-4">
+                        <!-- Trivia game will be injected here by JavaScript -->
+                    </div>
+                </div>
+
+                <!-- Game 2: Memory Match -->
+                <div class="section-card p-6 rounded-xl shadow-xl border-t-4 border-yellow-300">
+                    <h3 class="text-2xl font-bold mb-3 flex items-center text-yellow-300">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-twinning-two mr-2"><path d="M7 21v-1a4 4 0 0 0-4-4H3c-2.2 0-4-1.8-4-4v-1c0-2.2 1.8-4 4-4h4"/><path d="M17 21v-1a4 4 0 0 1 4-4h4c2.2 0 4-1.8 4-4v-1c0-2.2-1.8-4-4-4h-4"/><path d="M12 11h1v-1h-1v1Z"/><path d="M10 11h1v-1h-1v1Z"/><path d="M14 11h1v-1h-1v1Z"/><path d="M12 9h1v-1h-1v1Z"/><path d="M10 9h1v-1h-1v1Z"/><path d="M14 9h1v-1h-1v1Z"/><path d="M12 7h1v-1h-1v1Z"/><path d="M10 7h1v-1h-1v1Z"/><path d="M14 7h1v-1h-1v1Z"/><path d="M12 5h1v-1h-1v1Z"/><path d="M10 5h1v-1h-1v1Z"/><path d="M14 5h1v-1h-1v1Z"/><path d="M12 3h1v-1h-1v1Z"/><path d="M10 3h1v-1h-1v1Z"/><path d="M14 3h1v-1h-1v1Z"/><path d="M12 1h1v-1h-1v1Z"/><path d="M10 1h1v-1h-1v1Z"/><path d="M14 1h1v-1h-1v1Z"/><path d="M12 13h1v-1h-1v1Z"/><path d="M10 13h1v-1h-1v1Z"/><path d="M14 13h1v-1h-1v1Z"/><path d="M12 15h1v-1h-1v1Z"/><path d="M10 15h1v-1h-1v1Z"/><path d="M14 15h1v-1h-1v1Z"/><path d="M12 17h1v-1h-1v1Z"/><path d="M10 17h1v-1h-1v1Z"/><path d="M14 17h1v-1h-1v1Z"/><path d="M12 19h1v-1h-1v1Z"/><path d="M10 19h1v-1h-1v1Z"/><path d="M14 19h1v-1h-1v1Z"/><path d="M12 21h1v-1h-1v1Z"/><path d="M10 21h1v-1h-1v1Z"/><path d="M14 21h1v-1h-1v1Z"/><path d="M12 23h1v-1h-1v1Z"/><path d="M10 23h1v-1h-1v1Z"/><path d="M14 23h1v-1h-1v1Z"/></svg>
+                        Juego de Memoria Navideña
+                    </h3>
+                    <p class="text-sm mb-4 text-gray-400">
+                        Juego de Match para emparejar elementos Navideños.
+                    </p>
+                    <div id="memory-game-container" class="mt-4">
+                        <!-- Memory game will be injected here by JavaScript -->
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+        <!-- --- Agradecimientos (Updated after location move) --- -->
+        <section id="info" class="mb-12">
+            <h2 class="text-4xl font-extrabold text-yellow-300 mb-6 border-b-4 border-pink-300 pb-2 bg-purple-900/50 p-2 rounded-t-lg shadow-md">
+                Agradecimientos Especiales
+            </h2>
+
+            <div>
+                <h3 class="text-2xl font-bold text-pink-300 mb-4 bg-purple-900/50 p-2 rounded-t-lg">
+                    Patrocinadores (Sponsors)
+                </h3>
+                <p class="text-gray-300 mb-4 px-2">
+                    Agradecemos profundamente a todos nuestros patrocinadores por hacer posible esta celebración.
+                </p>
+                <div id="sponsors-container" class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4">
+                    <!-- Sponsor items will be generated here by JavaScript -->
+                </div>
+            </div>
+        </section>
+
+
+        <!-- Footer -->
+        <footer class="text-center py-8 mt-12 text-gray-400 bg-purple-900/70 rounded-xl">
+            <p>&copy; 2025 Colombian Products and Services. All rights reserved.</p>
+        </footer>
+    </div>
+
+    <script>
+        // --- Data Replication from PDF and Component Generation ---
+        const prayers = [
+            { 
+                title: 'Oración para todos los días', 
+                content: 'Benignísimo Dios de infinita caridad, que tanto amasteis a los hombres, que les disteis en vuestro Hijo la prenda de vuestro amor, para que hecho hombre en las entrañas de una Virgen, naciese en un pesebre para nuestra salud y remedio. Os ruego, por este inefable misterio, que me deis la gracia de hacer mi novena con fervor, y que el Niño Jesús nazca espiritualmente en mi alma, para que sea mi guía y mi fuerza en todo momento. Amén.', 
+                leader: 'Comunidad' 
+            },
+            { 
+                title: 'Oración a la Santísima Virgen María', 
+                content: 'Soberana María que por vuestras grandes virtudes y especialmente por vuestra humildad, merecisteis ser escogida por Dios para Madre de su Hijo Unigénito. Os suplico que vuestra inmensa bondad me alcance de vuestro divino Hijo la gracia de hacer mi novena con fervor, para que nazca en mi corazón la paz y la alegría de la Navidad, y pueda yo, como vos, guardar todas estas cosas, meditándolas en mi corazón. Dios te salve, María...', 
+                leader: 'Comunidad' 
+            },
+            { 
+                title: 'Oración a San José', 
+                content: 'Oh Santísimo José, esposo de María y padre adoptivo de Jesús. Os ruego que intercedáis por mí ante el Niño Jesús para que en esta Novena me conceda las gracias que necesito para mi salvación y la de mi familia. Enseñadnos a ser custodios del hogar, trabajadores en el silencio y fieles servidores de Dios, como lo fuisteis vos. Amén.', 
+                leader: 'Comunidad' 
+            },
+            { 
+                title: 'Consideración del Día (Diciembre 21)', 
+                content: 'Por Hector Isaza:\n\nEn este primer día, el corazón se llena de la expectación de la inminente llegada del Redentor. La tradición de la Novena no es solo un recuerdo, sino una preparación activa. Pensemos en el burro que llevó a María a Belén: un simple animal, pero parte esencial del plan divino. Así, cada uno de nosotros, por simple que sea nuestra tarea, es fundamental en el tejido de la fe. Reflexionemos hoy sobre la humildad y la disposición, preparándonos para recibir a Jesús no solo en el pesebre, sino en la cuna de nuestro espíritu.', 
+                leader: 'Hector Isaza',
+            },
+            { 
+                title: 'Oración al Niño Jesús', 
+                content: 'Acuérdate, ¡oh dulcísimo Niño Jesús!, que dijisteis: “Pedid y recibiréis, buscad y hallaréis, llamad y se os abrirá”. Confiando en tu palabra, vengo a pedirte con Fe viva la gracia que tanto necesito... (Mencione su petición en silencio). Ilumina mi mente y mi corazón para que pueda vivir la Navidad con verdadero sentido cristiano, y que tu amor me acompañe siempre. Amén.', 
+                leader: 'Hector Isaza',
+            },
+            { 
+                title: 'Gozos (Cantos de la Novena)', 
+                content: '¡Dulce Jesús mío, mi Niño adorado! ¡Ven a nuestras almas! ¡Ven no tardes tanto!\n\n(Cantemos con alegría, esperando la llegada del Niño Dios, que trae consigo la paz y la esperanza a nuestros corazones).', 
+                leader: 'Andres Felipe Montoya y Hector Isaza',
+            },
+        ];
+
+        // --- Sponsors List from PDF ---
+        const sponsors = [
+            { name: 'Colombian Products and Services', role: 'Anfitrión Principal' },
+            { name: 'Tierra De Gigantes', role: 'Apoyo' },
+            { name: 'La Fonda de Danny', role: 'Apoyo' },
+            { name: 'Joselito Castro', role: 'Apoyo' },
+            { name: 'Global Cargo', role: 'Apoyo' },
+            { name: 'JR Tours', role: 'Apoyo' },
+            { name: 'Pinelime', role: 'Apoyo' },
+            { name: 'Luxury Escapes Marketing', role: 'Presentador' },
+            { name: 'UVL Marketing', role: 'Coordinación' },
+            { name: 'Orlando Rincón', role: 'Santa' },
+            { name: 'Edgar Parrado', role: 'Música Ambiente y Video' },
+            { name: 'Angelica y Carlos Gutierrez', role: 'Logística' },
+            { name: 'Linda Lucas', role: 'Organización' },
+            { name: 'Chalos', role: 'Apoyo General' },
+            { name: 'Hector Isaza', role: 'Organización' },
+            { name: 'Paola Medina y Andres F Montoya', role: 'Apoyo General' },
+            { name: 'Gustavo Padilla', role: 'Apoyo General' },
+            { name: 'Juan Castillo y su Orquesta', role: 'Presentación Musical' },
+            { name: 'Equipo de trabajo Colombian products', role: 'Agradecimientos Especiales' },
+            { name: 'Familia y amigos', role: 'Agradecimientos Especiales' },
+        ];
+
+
+        // --- JavaScript Functionality ---
+        document.addEventListener('DOMContentLoaded', () => {
+            // 1. Initialize Lucide Icons
+            if (typeof lucide !== 'undefined') {
+                lucide.createIcons();
+            }
+
+            // 2. Populate Accordion Section
+            const accordionContainer = document.getElementById('accordion-container');
+            if (accordionContainer) {
+                prayers.forEach((prayer, index) => {
+                    const id = `prayer-${index}`;
+                    // Use darker background for the prayer content
+                    const html = `
+                        <div class="border border-purple-600 section-card rounded-xl mb-4 shadow-xl overflow-hidden"> 
+                            <button
+                                class="accordion-toggle flex justify-between items-center w-full p-4 text-left font-semibold text-lg text-yellow-300 bg-purple-900/70 hover:bg-purple-800/70 transition duration-150"
+                                data-target="#${id}-content"
+                            >
+                                <span>${prayer.title}</span>
+                                <span class="text-gray-400 text-sm italic mr-2 hidden md:block">(${prayer.leader})</span>
+                                <svg class="accordion-icon icon-rotate w-5 h-5 ml-2 transition-transform duration-300 text-yellow-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+                            </button>
+                            <div id="${id}-content" class="accordion-content">
+                                <div class="text-gray-200 text-sm leading-relaxed whitespace-pre-line bg-purple-900/50 p-4 rounded-b-xl border-t border-purple-700">
+                                    ${prayer.content.replace(/\n/g, '<br>')}
+                                </div>
+                            </div>
+                        </div>
+                    `;
+                    accordionContainer.insertAdjacentHTML('beforeend', html);
+                });
+
+                // Add Accordion Logic
+                document.querySelectorAll('.accordion-toggle').forEach(button => {
+                    button.addEventListener('click', () => {
+                        const targetSelector = button.getAttribute('data-target');
+                        const content = document.querySelector(targetSelector);
+                        const icon = button.querySelector('.accordion-icon');
+
+                        if (content.classList.contains('open')) {
+                            content.classList.remove('open');
+                            icon.classList.remove('open');
+                        } else {
+                            // Close others
+                            document.querySelectorAll('.accordion-content.open').forEach(openContent => {
+                                openContent.classList.remove('open');
+                                openContent.previousElementSibling.querySelector('.accordion-icon').classList.remove('open');
+                            });
+
+                            content.classList.add('open');
+                            icon.classList.add('open');
+                        }
+                    });
+                });
+            }
+
+            // 3. Populate Sponsors Section
+            const sponsorsContainer = document.getElementById('sponsors-container');
+            if (sponsorsContainer) {
+                sponsors.forEach(sponsor => {
+                    const html = `
+                        <div class="p-3 section-card border border-purple-600 rounded-lg shadow-sm bg-purple-900/50">
+                            <p class="font-semibold text-gray-100">${sponsor.name}</p>
+                            <p class="text-xs text-yellow-400 mt-0.5 italic">${sponsor.role}</p>
+                        </div>
+                    `;
+                    sponsorsContainer.insertAdjacentHTML('beforeend', html);
+                });
+            }
+
+            // --- 4. Trivia Game Logic ---
+            const triviaContainer = document.getElementById('trivia-game-container');
+            const triviaQuestions = [
+                {
+                    question: "¿Qué día del mes de Diciembre se celebra el nacimiento del Niño Jesús?",
+                    options: ["24", "25", "31", "1"],
+                    answer: "25"
+                },
+                {
+                    question: "¿Cómo se llama el canto tradicional que se reza en la Novena?",
+                    options: ["Villancico", "Gozos", "Salve", "Ave María"],
+                    answer: "Gozos"
+                },
+                {
+                    question: "¿En qué ciudad nació Jesús?",
+                    options: ["Nazaret", "Belén", "Jerusalén", "Roma"],
+                    answer: "Belén"
+                },
+                {
+                    question: "¿Cuántos Reyes Magos visitaron al Niño Jesús?",
+                    options: ["Dos", "Tres", "Cuatro", "Cinco"],
+                    answer: "Tres"
+                },
+                {
+                    question: "¿Qué objeto guía a los Reyes Magos hacia el pesebre?",
+                    options: ["Un Ángel", "Una linterna", "Una Estrella", "Una nube"],
+                    answer: "Una Estrella"
+                }
+            ];
+            
+            let currentQuestionIndex = 0;
+            let score = 0;
+            let answered = false;
+
+            function renderTrivia() {
+                if (!triviaContainer) return;
+
+                if (currentQuestionIndex >= triviaQuestions.length) {
+                    triviaContainer.innerHTML = `
+                        <div class="text-center p-6 bg-purple-900/70 rounded-lg border border-yellow-500">
+                            <h4 class="text-3xl font-bold text-yellow-300 mb-4">¡Juego Terminado!</h4>
+                            <p class="text-xl text-white mb-6">Tu puntuación final es: <span class="font-extrabold text-pink-300">${score} de ${triviaQuestions.length}</span></p>
+                            <button onclick="window.resetTrivia()" class="px-6 py-2 bg-pink-500 text-white font-bold rounded-lg shadow hover:bg-pink-600 transition duration-150">
+                                Jugar de Nuevo
+                            </button>
+                        </div>
+                    `;
+                    return;
+                }
+
+                const q = triviaQuestions[currentQuestionIndex];
+                const optionsHtml = q.options.map(option => `
+                    <button 
+                        data-answer="${option}" 
+                        class="trivia-option w-full p-3 mb-2 text-left bg-purple-800 hover:bg-purple-700/80 rounded-lg transition duration-150 font-medium"
+                    >
+                        ${option}
+                    </button>
+                `).join('');
+
+                triviaContainer.innerHTML = `
+                    <div class="bg-purple-900/50 p-4 rounded-lg border border-purple-700">
+                        <p class="text-sm text-gray-400 mb-1">Pregunta ${currentQuestionIndex + 1} de ${triviaQuestions.length}</p>
+                        <h4 class="text-xl font-semibold text-yellow-300 mb-4">${q.question}</h4>
+                        <div id="options-container">
+                            ${optionsHtml}
+                        </div>
+                        <div id="trivia-feedback" class="mt-3 font-bold text-center"></div>
+                        <div class="flex justify-between items-center mt-4 pt-4 border-t border-purple-700">
+                            <p class="text-sm text-gray-300">Puntuación: <span class="font-bold text-pink-300">${score}</span></p>
+                            <button id="next-trivia" class="px-4 py-2 bg-gray-500 text-white font-bold rounded-lg shadow transition duration-150 opacity-50 cursor-not-allowed" disabled>
+                                Siguiente
+                            </button>
+                        </div>
+                    </div>
+                `;
+
+                answered = false;
+                document.querySelectorAll('.trivia-option').forEach(button => {
+                    button.addEventListener('click', handleAnswer);
+                });
+            }
+
+            function handleAnswer(event) {
+                if (answered) return;
+                answered = true;
+
+                const selectedOption = event.target;
+                const selectedAnswer = selectedOption.getAttribute('data-answer');
+                const correctAnswer = triviaQuestions[currentQuestionIndex].answer;
+                const feedback = document.getElementById('trivia-feedback');
+                const nextButton = document.getElementById('next-trivia');
+
+                document.querySelectorAll('.trivia-option').forEach(btn => btn.disabled = true); // Disable all buttons
+
+                if (selectedAnswer === correctAnswer) {
+                    score++;
+                    selectedOption.classList.remove('bg-purple-800', 'hover:bg-purple-700/80');
+                    selectedOption.classList.add('bg-green-600', 'hover:bg-green-500');
+                    feedback.innerHTML = '<span class="text-green-400">¡Correcto!</span>';
+                } else {
+                    selectedOption.classList.remove('bg-purple-800', 'hover:bg-purple-700/80');
+                    selectedOption.classList.add('bg-red-600', 'hover:bg-red-500');
+                    // Highlight correct answer
+                    document.querySelectorAll('.trivia-option').forEach(btn => {
+                        if (btn.getAttribute('data-answer') === correctAnswer) {
+                            btn.classList.add('bg-blue-600');
+                            btn.classList.remove('bg-purple-800');
+                        }
+                    });
+                    feedback.innerHTML = `<span class="text-red-400">Incorrecto. La respuesta es: ${correctAnswer}</span>`;
+                }
+
+                nextButton.disabled = false;
+                nextButton.classList.remove('bg-gray-500', 'opacity-50', 'cursor-not-allowed');
+                nextButton.classList.add('bg-pink-500', 'hover:bg-pink-600');
+                nextButton.addEventListener('click', nextTriviaQuestion);
+            }
+
+            function nextTriviaQuestion() {
+                currentQuestionIndex++;
+                renderTrivia();
+            }
+
+            // Expose resetTrivia globally so the button can call it after the game ends
+            window.resetTrivia = function() {
+                currentQuestionIndex = 0;
+                score = 0;
+                renderTrivia();
+            }
+
+            // Initialize Trivia Game
+            renderTrivia();
+
+
+            // --- 5. Memory Match Game Logic ---
+            const memoryContainer = document.getElementById('memory-game-container');
+            const cardSymbols = ['🎄', '🎁', '🌟', '🔔', '🎅', '🕯️'];
+            let gameCards = [];
+            let flippedCards = [];
+            let matchesFound = 0;
+            let canFlip = true;
+            let moveCount = 0;
+
+            function shuffle(array) {
+                for (let i = array.length - 1; i > 0; i--) {
+                    const j = Math.floor(Math.random() * (i + 1));
+                    [array[i], array[j]] = [array[j], array[i]];
+                }
+            }
+
+            window.initializeMemoryGame = function() {
+                if (!memoryContainer) return;
+                
+                gameCards = [...cardSymbols, ...cardSymbols];
+                shuffle(gameCards);
+                
+                flippedCards = [];
+                matchesFound = 0;
+                moveCount = 0;
+                canFlip = true;
+
+                renderMemoryGame();
+            }
+
+            function renderMemoryGame() {
+                if (!memoryContainer) return;
+
+                const gridHtml = gameCards.map((symbol, index) => `
+                    <div 
+                        class="memory-card" 
+                        data-index="${index}" 
+                        data-symbol="${symbol}"
+                        onclick="window.handleCardClick(this, ${index})"
+                    >
+                        <span class="card-inner">${symbol}</span>
+                    </div>
+                `).join('');
+
+                memoryContainer.innerHTML = `
+                    <div class="text-center mb-4">
+                        <p class="text-lg font-semibold text-yellow-300">Movimientos: <span id="move-count" class="text-pink-300">${moveCount}</span></p>
+                    </div>
+                    <div id="memory-grid" class="memory-grid">
+                        ${gridHtml}
+                    </div>
+                    <div id="memory-message" class="text-center mt-4 font-bold text-xl text-green-400"></div>
+                    <button 
+                        onclick="window.initializeMemoryGame()" 
+                        class="w-full mt-4 px-4 py-2 bg-pink-500 text-white font-bold rounded-lg shadow hover:bg-pink-600 transition duration-150"
+                    >
+                        Reiniciar Juego
+                    </button>
+                `;
+            }
+
+            // Expose handleCardClick globally for the HTML onclick attribute
+            window.handleCardClick = function(cardElement, index) {
+                if (!canFlip || cardElement.classList.contains('flipped') || cardElement.classList.contains('matched')) {
+                    return;
+                }
+
+                cardElement.classList.add('flipped');
+                flippedCards.push({ element: cardElement, index: index, symbol: cardElement.getAttribute('data-symbol') });
+
+                if (flippedCards.length === 2) {
+                    canFlip = false;
+                    moveCount++;
+                    document.getElementById('move-count').textContent = moveCount;
+
+                    setTimeout(checkForMatch, 1000);
+                }
+            }
+
+            function checkForMatch() {
+                const [card1, card2] = flippedCards;
+                const messageBox = document.getElementById('memory-message');
+
+                if (card1.symbol === card2.symbol) {
+                    // Match found
+                    card1.element.classList.add('matched');
+                    card2.element.classList.add('matched');
+                    // Remove flipped class but not immediately, so the color transition works
+                    setTimeout(() => {
+                        card1.element.classList.remove('flipped');
+                        card2.element.classList.remove('flipped');
+                    }, 50); 
+                    
+                    messageBox.textContent = "¡Pareja encontrada!";
+                    matchesFound++;
+
+                    if (matchesFound === cardSymbols.length) {
+                        messageBox.innerHTML = `
+                            <p class="text-3xl">¡Ganaste! 🎉</p>
+                            <p class="text-lg">Movimientos totales: ${moveCount}</p>
+                        `;
+                    }
+                } else {
+                    // No match
+                    setTimeout(() => {
+                        card1.element.classList.remove('flipped');
+                        card2.element.classList.remove('flipped');
+                    }, 500); // Give player time to see the mismatched cards
+                    
+                    messageBox.textContent = "Intenta de nuevo...";
+                }
+
+                flippedCards = [];
+                canFlip = true;
+                setTimeout(() => messageBox.textContent = "", 1500);
+            }
+            
+            // Initialize Memory Game
+            window.initializeMemoryGame();
+        });
+    </script>
+</body>
+</html>
