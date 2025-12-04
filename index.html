@@ -13,7 +13,6 @@
         body {
             font-family: 'Inter', sans-serif;
             scroll-behavior: smooth;
-            /* 1. APPLY NIGHT SKY BACKGROUND TO THE ENTIRE BODY (Working URL) */
             background-image: url('https://i.imgur.com/5CmW4Z9.png');
             background-size: cover;
             background-position: center;
@@ -24,7 +23,6 @@
             overflow-x: hidden;
         }
 
-        /* 2. OVERLAY FOR BETTER TEXT READABILITY */
         body::before {
             content: '';
             position: absolute;
@@ -40,23 +38,16 @@
             z-index: 2;
             position: relative;
             max-width: 1024px;
-            /* Setting a Max Width for content */
         }
 
-        /* Styling for the header container to manage the background and blur */
         .header-container {
-            /* Ensures the backdrop-blur property works on the header background */
             background: rgba(76, 29, 149, 0.7);
-            /* bg-purple-900/70 */
         }
 
-        /* Section cards for better contrast against the dark background */
         .section-card {
             background-color: rgba(255, 255, 255, 0.08);
-            /* Light transparency */
         }
 
-        /* Accordion transition for max-height */
         .accordion-content {
             transition: max-height 0.5s ease-in-out, opacity 0.5s ease-in-out, padding 0.3s;
             max-height: 0;
@@ -68,7 +59,6 @@
 
         .accordion-content.open {
             max-height: 1000px;
-            /* Large value to accommodate content */
             opacity: 1;
             padding-top: 0.75rem;
             padding-bottom: 1rem;
@@ -78,7 +68,6 @@
             transform: rotate(180deg);
         }
 
-        /* --- Custom Styles for Memory Game --- */
         .memory-grid {
             display: grid;
             grid-template-columns: repeat(4, 1fr);
@@ -96,26 +85,21 @@
             font-size: 2.5rem;
             cursor: pointer;
             background-color: #4c1d95;
-            /* purple-900 */
             border-radius: 10px;
             transition: transform 0.6s, background-color 0.3s;
             transform-style: preserve-3d;
             position: relative;
             box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
             border: 2px solid #a78bfa;
-            /* violet-400 */
         }
 
         .memory-card.flipped {
             background-color: #fcd34d;
-            /* yellow-300 */
             color: #4c1d95;
-            /* purple-900 */
         }
 
         .memory-card.matched {
             background-color: #10b981;
-            /* emerald-500 */
             color: white;
             opacity: 0.8;
             pointer-events: none;
@@ -125,14 +109,12 @@
             pointer-events: none;
         }
 
-        /* Ensure card content is always centered */
         .card-inner {
             width: 100%;
             height: 100%;
             display: flex;
             justify-content: center;
             align-items: center;
-            /* Hide the symbol when not flipped */
             color: transparent;
         }
 
@@ -141,11 +123,183 @@
             color: inherit;
         }
 
-        /* Mobile adjustments for card size */
         @media (max-width: 640px) {
             .memory-card {
                 height: 60px;
                 font-size: 2rem;
+            }
+        }
+
+        /* --- Scavenger Hunt Styles --- */
+        .hidden-clue {
+            width: 34px;
+            height: 34px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 8px;
+            background: rgba(255, 255, 255, 0.04);
+            color: rgba(255, 255, 255, 0.9);
+            opacity: 0.65;
+            transition: transform 0.18s ease, opacity 0.18s ease, background-color 0.18s ease;
+            font-weight: 700;
+            cursor: pointer;
+            user-select: none;
+            margin-left: 0.35rem;
+            margin-right: 0.35rem;
+            border: 1px solid rgba(255, 255, 255, 0.04);
+            font-size: 0.95rem;
+        }
+
+        .hidden-clue:hover {
+            transform: scale(1.05);
+            opacity: 1;
+        }
+
+        .hidden-clue.collecting {
+            animation: collect-flash 0.5s ease;
+            pointer-events: none;
+        }
+
+        .hidden-clue.clue-found {
+            opacity: 1;
+            background-color: #4ade80;
+            color: #064e3b;
+            transform: scale(1.03);
+            box-shadow: 0 6px 18px rgba(74, 222, 128, 0.15);
+            pointer-events: none;
+        }
+
+        @keyframes collect-flash {
+            0% {
+                transform: scale(1);
+                filter: drop-shadow(0 0 0 rgba(74, 222, 128, 0));
+            }
+
+            50% {
+                transform: scale(1.35);
+                filter: drop-shadow(0 6px 14px rgba(74, 222, 128, 0.8));
+            }
+
+            100% {
+                transform: scale(1);
+                filter: drop-shadow(0 0 0 rgba(74, 222, 128, 0));
+            }
+        }
+
+        #scavenger-tracker {
+            background: linear-gradient(90deg, rgba(79, 70, 229, 0.12), rgba(20, 83, 45, 0.12));
+            border: 1px solid rgba(168, 85, 247, 0.12);
+            padding: 0.75rem;
+            border-radius: 0.75rem;
+        }
+
+        #hunt-icons {
+            display: flex;
+            gap: 0.5rem;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .scavenger-icon {
+            width: 40px;
+            height: 40px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 8px;
+            background: rgba(255, 255, 255, 0.04);
+            color: rgba(255, 255, 255, 0.9);
+            opacity: 0.3;
+            transition: opacity 0.25s ease, background-color 0.25s ease, transform 0.18s ease;
+            font-size: 1.15rem;
+            border: 1px solid rgba(255, 255, 255, 0.04);
+        }
+
+        .scavenger-icon.collected {
+            opacity: 1;
+            background-color: #4ade80;
+            color: #064e3b;
+            transform: scale(1.06);
+            box-shadow: 0 6px 18px rgba(74, 222, 128, 0.18);
+        }
+
+        #final-prize.hidden {
+            display: none;
+        }
+
+        #final-prize {
+            margin-top: 0.5rem;
+            text-align: center;
+            font-weight: 700;
+            color: #fde68a;
+            background: rgba(16, 185, 129, 0.08);
+            border: 1px dashed rgba(250, 204, 21, 0.12);
+            padding: 0.6rem;
+            border-radius: 0.5rem;
+        }
+
+        #fireworks-overlay {
+            position: fixed;
+            inset: 0;
+            z-index: 50;
+            display: none;
+            pointer-events: none;
+        }
+
+        #fireworks-overlay.active {
+            display: block;
+        }
+
+        #fireworks-overlay .overlay-bg {
+            position: absolute;
+            inset: 0;
+            background: rgba(0, 0, 0, 0.45);
+            backdrop-filter: blur(2px);
+        }
+
+        #fireworks-overlay .burst {
+            position: absolute;
+            left: 50%;
+            top: 40%;
+            transform: translate(-50%, -50%);
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background: radial-gradient(circle at 30% 30%, #fff, transparent 40%);
+            box-shadow: 0 0 18px 6px rgba(250, 204, 21, 0.5);
+            animation: firework-burst 1200ms ease-out forwards;
+        }
+
+        @keyframes firework-burst {
+            0% {
+                transform: translate(-50%, -50%) scale(0.4);
+                opacity: 1;
+                box-shadow: 0 0 8px rgba(250, 204, 21, 0.5);
+            }
+
+            40% {
+                transform: translate(-50%, -50%) scale(1.8);
+                opacity: 1;
+            }
+
+            100% {
+                transform: translate(-50%, -50%) scale(4);
+                opacity: 0;
+                box-shadow: 0 0 60px rgba(250, 204, 21, 0.1);
+            }
+        }
+
+        @media (max-width: 640px) {
+            #hunt-icons .scavenger-icon {
+                width: 36px;
+                height: 36px;
+            }
+
+            .hidden-clue {
+                width: 30px;
+                height: 30px;
+                font-size: 0.85rem;
             }
         }
     </style>
@@ -215,12 +369,14 @@
                         El nacimiento de Jesús marcó la esperanza en el mundo entero, deja que la Navidad te envuelva de
                         AMOR. Feliz Navidad a todos los que comparten el deseo de un mundo mejor, lleno de paz y
                         esperanza.
+                        <span class="hidden-clue" data-clue-id="clue1"
+                            title="Pista 1 - Árbol 🎄 (Haz clic para recolectarla)" aria-label="Pista 1 árbol"
+                            role="button" tabindex="0">🎄</span>
                     </p>
                     <p class="text-sm font-semibold text-yellow-300">Anfitrión Principal: Colombian Products</p>
                 </div>
             </div>
 
-            <!-- Location Block (MOVED HERE) -->
             <div class="section-card p-6 rounded-2xl shadow-xl mt-8 border border-yellow-500 bg-purple-900/50">
                 <h3 class="text-2xl font-bold text-yellow-300 mb-3 flex items-center">
                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
@@ -248,7 +404,11 @@
                 <div>
                     <ul class="space-y-3">
                         <li class="p-3 bg-purple-800/50 rounded-lg shadow-md"><span
-                                class="font-bold text-yellow-400">6:00 PM - 6:40 PM:</span> Llegada asistentes</li>
+                                class="font-bold text-yellow-400">6:00 PM - 6:40 PM:</span> Llegada asistentes
+                            <span class="hidden-clue" data-clue-id="clue2"
+                                title="Pista 2 - Regalo 🎁 (Haz clic para recolectarla)" aria-label="Pista 2 regalo"
+                                role="button" tabindex="0">🎁</span>
+                        </li>
                         <li class="p-3 bg-purple-800/50 rounded-lg shadow-md"><span
                                 class="font-bold text-yellow-400">6:40 PM - 7:00 PM:</span> Dinámicas de Apertura</li>
                         <li class="p-3 bg-purple-800/50 rounded-lg shadow-md"><span
@@ -284,18 +444,46 @@
             <p class="text-gray-300 mb-6 px-2">
                 A continuación, encuentra el texto completo de las oraciones para que puedas seguir la Novena y
                 participar activamente.
+                <span class="hidden-clue" data-clue-id="clue3"
+                    title="Pista 3 - Estrella 🌟 (Haz clic para recolectarla)" aria-label="Pista 3 estrella"
+                    role="button" tabindex="0">🌟</span>
             </p>
             <div id="accordion-container">
                 <!-- Accordion items will be generated here by JavaScript -->
             </div>
         </section>
 
-        <!-- --- Juegos y Entretenimiento --- -->
+        <!-- --- Juegos y Entretenimiento (NOW CONTAINS SCAVENGER TRACKER) --- -->
         <section id="juegos" class="mb-12">
             <h2
                 class="text-4xl font-extrabold text-yellow-300 mb-6 border-b-4 border-pink-300 pb-2 bg-purple-900/50 p-2 rounded-t-lg shadow-md">
                 Juegos y Entretenimiento
             </h2>
+
+            <!-- Scavenger Hunt Tracker moved into the Games section -->
+            <div id="scavenger-tracker" class="mb-6 section-card rounded-xl p-4 shadow-xl border-t-4 border-yellow-400">
+                <div class="flex items-center justify-between">
+                    <div class="text-left">
+                        <h3 class="text-lg font-bold text-yellow-300">Búsqueda de Tesoros Navideños</h3>
+                        <p class="text-sm text-gray-300">Encuentra las 4 pistas ocultas en la página</p>
+                    </div>
+                    <div id="hunt-icons" class="text-right">
+                        <div class="scavenger-icon" data-clue-id="clue1" title="Pista 1 - Árbol 🎄"
+                            aria-label="Pista 1 árbol">🎄</div>
+                        <div class="scavenger-icon" data-clue-id="clue2" title="Pista 2 - Regalo 🎁"
+                            aria-label="Pista 2 regalo">🎁</div>
+                        <div class="scavenger-icon" data-clue-id="clue3" title="Pista 3 - Estrella 🌟"
+                            aria-label="Pista 3 estrella">🌟</div>
+                        <div class="scavenger-icon" data-clue-id="clue4" title="Pista 4 - Campana 🔔"
+                            aria-label="Pista 4 campana">🔔</div>
+                    </div>
+                </div>
+
+                <div id="final-prize" class="hidden mt-3">
+                    ¡Felicidades! Código de premio: NAVIDAD-2025
+                </div>
+            </div>
+
             <div class="grid md:grid-cols-2 gap-6">
 
                 <!-- Game 1: Trivia Game -->
@@ -306,33 +494,6 @@
                             class="lucide lucide-gamepad-2 mr-2">
                             <path d="M21 12v3a1 1 0 0 1-1 1h-2a1 1 0 0 1-1-1v-3a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1Z" />
                             <path d="M3 12v3a1 1 0 0 0 1 1h2a1 1 0 0 0 1-1v-3a1 1 0 0 0-1-1H4a1 1 0 0 0-1 1Z" />
-                            <path d="M12 19h1v-1h-1v1Z" />
-                            <path d="M10 19h1v-1h-1v1Z" />
-                            <path d="M14 19h1v-1h-1v1Z" />
-                            <path d="M12 17h1v-1h-1v1Z" />
-                            <path d="M10 17h1v-1h-1v1Z" />
-                            <path d="M14 17h1v-1h-1v1Z" />
-                            <path d="M12 15h1v-1h-1v1Z" />
-                            <path d="M10 15h1v-1h-1v1Z" />
-                            <path d="M14 15h1v-1h-1v1Z" />
-                            <path d="M12 13h1v-1h-1v1Z" />
-                            <path d="M10 13h1v-1h-1v1Z" />
-                            <path d="M14 13h1v-1h-1v1Z" />
-                            <path d="M12 11h1v-1h-1v1Z" />
-                            <path d="M10 11h1v-1h-1v1Z" />
-                            <path d="M14 11h1v-1h-1v1Z" />
-                            <path d="M12 9h1v-1h-1v1Z" />
-                            <path d="M10 9h1v-1h-1v1Z" />
-                            <path d="M14 9h1v-1h-1v1Z" />
-                            <path d="M12 7h1v-1h-1v1Z" />
-                            <path d="M10 7h1v-1h-1v1Z" />
-                            <path d="M14 7h1v-1h-1v1Z" />
-                            <path d="M12 5h1v-1h-1v1Z" />
-                            <path d="M10 5h1v-1h-1v1Z" />
-                            <path d="M14 5h1v-1h-1v1Z" />
-                            <path d="M12 3h1v-1h-1v1Z" />
-                            <path d="M10 3h1v-1h-1v1Z" />
-                            <path d="M14 3h1v-1h-1v1Z" />
                         </svg>
                         Novena Trivia
                     </h3>
@@ -351,56 +512,24 @@
                             stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
                             class="lucide lucide-twinning-two mr-2">
                             <path d="M7 21v-1a4 4 0 0 0-4-4H3c-2.2 0-4-1.8-4-4v-1c0-2.2 1.8-4 4-4h4" />
-                            <path d="M17 21v-1a4 4 0 0 1 4-4h4c2.2 0 4-1.8 4-4v-1c0-2.2-1.8-4-4-4h-4" />
-                            <path d="M12 11h1v-1h-1v1Z" />
-                            <path d="M10 11h1v-1h-1v1Z" />
-                            <path d="M14 11h1v-1h-1v1Z" />
-                            <path d="M12 9h1v-1h-1v1Z" />
-                            <path d="M10 9h1v-1h-1v1Z" />
-                            <path d="M14 9h1v-1h-1v1Z" />
-                            <path d="M12 7h1v-1h-1v1Z" />
-                            <path d="M10 7h1v-1h-1v1Z" />
-                            <path d="M14 7h1v-1h-1v1Z" />
-                            <path d="M12 5h1v-1h-1v1Z" />
-                            <path d="M10 5h1v-1h-1v1Z" />
-                            <path d="M14 5h1v-1h-1v1Z" />
-                            <path d="M12 3h1v-1h-1v1Z" />
-                            <path d="M10 3h1v-1h-1v1Z" />
-                            <path d="M14 3h1v-1h-1v1Z" />
-                            <path d="M12 1h1v-1h-1v1Z" />
-                            <path d="M10 1h1v-1h-1v1Z" />
-                            <path d="M14 1h1v-1h-1v1Z" />
-                            <path d="M12 13h1v-1h-1v1Z" />
-                            <path d="M10 13h1v-1h-1v1Z" />
-                            <path d="M14 13h1v-1h-1v1Z" />
-                            <path d="M12 15h1v-1h-1v1Z" />
-                            <path d="M10 15h1v-1h-1v1Z" />
-                            <path d="M14 15h1v-1h-1v1Z" />
-                            <path d="M12 17h1v-1h-1v1Z" />
-                            <path d="M10 17h1v-1h-1v1Z" />
-                            <path d="M14 17h1v-1h-1v1Z" />
-                            <path d="M12 19h1v-1h-1v1Z" />
-                            <path d="M10 19h1v-1h-1v1Z" />
-                            <path d="M14 19h1v-1h-1v1Z" />
-                            <path d="M12 21h1v-1h-1v1Z" />
-                            <path d="M10 21h1v-1h-1v1Z" />
-                            <path d="M14 21h1v-1h-1v1Z" />
-                            <path d="M12 23h1v-1h-1v1Z" />
-                            <path d="M10 23h1v-1h-1v1Z" />
-                            <path d="M14 23h1v-1h-1v1Z" />
                         </svg>
                         Juego de Memoria Navideña
                     </h3>
                     <p class="text-sm mb-4 text-gray-400">
                         Juego de Match para emparejar elementos Navideños.
                     </p>
+                    <div class="mb-3">
+                        <span class="hidden-clue" data-clue-id="clue4"
+                            title="Pista 4 - Campana 🔔 (Haz clic para recolectarla)" aria-label="Pista 4 campana"
+                            role="button" tabindex="0">🔔</span>
+                    </div>
+
                     <div id="memory-game-container" class="mt-4">
                         <!-- Memory game will be injected here by JavaScript -->
                     </div>
                 </div>
             </div>
         </section>
-
 
         <!-- --- Agradecimientos (Updated after location move) --- -->
         <section id="info" class="mb-12">
@@ -422,11 +551,15 @@
             </div>
         </section>
 
-
         <!-- Footer -->
         <footer class="text-center py-8 mt-12 text-gray-400 bg-purple-900/70 rounded-xl">
             <p>&copy; 2025 Colombian Products and Services. All rights reserved.</p>
         </footer>
+    </div>
+
+    <!-- Fireworks overlay (hidden by default) -->
+    <div id="fireworks-overlay" class="hidden">
+        <div class="overlay-bg"></div>
     </div>
 
     <script>
@@ -434,37 +567,36 @@
         const prayers = [
             {
                 title: 'Oración para todos los días',
-                content: 'Benignísimo Dios de infinita caridad, que tanto amasteis a los hombres, que les disteis en vuestro Hijo la prenda de vuestro amor, para que hecho hombre en las entrañas de una Virgen, naciese en un pesebre para nuestra salud y remedio. Os ruego, por este inefable misterio, que me deis la gracia de hacer mi novena con fervor, y que el Niño Jesús nazca espiritualmente en mi alma, para que sea mi guía y mi fuerza en todo momento. Amén.',
+                content: 'Benignísimo Dios de infinita caridad, que tanto amasteis a los hombres, que les disteis en vuestro Hijo la prenda de vuestro amor, para que hecho hombre en las entraña[...]',
                 leader: 'Comunidad'
             },
             {
                 title: 'Oración a la Santísima Virgen María',
-                content: 'Soberana María que por vuestras grandes virtudes y especialmente por vuestra humildad, merecisteis ser escogida por Dios para Madre de su Hijo Unigénito. Os suplico que vuestra inmensa bondad me alcance de vuestro divino Hijo la gracia de hacer mi novena con fervor, para que nazca en mi corazón la paz y la alegría de la Navidad, y pueda yo, como vos, guardar todas estas cosas, meditándolas en mi corazón. Dios te salve, María...',
+                content: 'Soberana María que por vuestras grandes virtudes y especialmente por vuestra humildad, merecisteis ser escogida por Dios para Madre de su Hijo Unigénito. Os suplico qu[...]',
                 leader: 'Comunidad'
             },
             {
                 title: 'Oración a San José',
-                content: 'Oh Santísimo José, esposo de María y padre adoptivo de Jesús. Os ruego que intercedáis por mí ante el Niño Jesús para que en esta Novena me conceda las gracias que necesito para mi salvación y la de mi familia. Enseñadnos a ser custodios del hogar, trabajadores en el silencio y fieles servidores de Dios, como lo fuisteis vos. Amén.',
+                content: 'Oh Santísimo José, esposo de María y padre adoptivo de Jesús. Os ruego que intercedáis por mí ante el Niño Jesús para que en esta Novena me conceda las gracias q[...]',
                 leader: 'Comunidad'
             },
             {
                 title: 'Consideración del Día (Diciembre 21)',
-                content: 'Por Hector Isaza:\n\nEn este primer día, el corazón se llena de la expectación de la inminente llegada del Redentor. La tradición de la Novena no es solo un recuerdo, sino una preparación activa. Pensemos en el burro que llevó a María a Belén: un simple animal, pero parte esencial del plan divino. Así, cada uno de nosotros, por simple que sea nuestra tarea, es fundamental en el tejido de la fe. Reflexionemos hoy sobre la humildad y la disposición, preparándonos para recibir a Jesús no solo en el pesebre, sino en la cuna de nuestro espíritu.',
+                content: 'Por Hector Isaza:\n\nEn este primer día, el corazón se llena de la expectación de la inminente llegada del Redentor. La tradición de la Novena no es solo un recuerdo[...]',
                 leader: 'Hector Isaza',
             },
             {
                 title: 'Oración al Niño Jesús',
-                content: 'Acuérdate, ¡oh dulcísimo Niño Jesús!, que dijisteis: “Pedid y recibiréis, buscad y hallaréis, llamad y se os abrirá”. Confiando en tu palabra, vengo a pedirte con Fe viva la gracia que tanto necesito... (Mencione su petición en silencio). Ilumina mi mente y mi corazón para que pueda vivir la Navidad con verdadero sentido cristiano, y que tu amor me acompañe siempre. Amén.',
+                content: 'Acuérdate, ¡oh dulcísimo Niño Jesús!, que dijisteis: “Pedid y recibiréis, buscad y hallaréis, llamad y se os abrirá”. Confiando en tu palabra, vengo a pedirt[...]',
                 leader: 'Hector Isaza',
             },
             {
                 title: 'Gozos (Cantos de la Novena)',
-                content: '¡Dulce Jesús mío, mi Niño adorado! ¡Ven a nuestras almas! ¡Ven no tardes tanto!\n\n(Cantemos con alegría, esperando la llegada del Niño Dios, que trae consigo la paz y la esperanza a nuestros corazones).',
+                content: '¡Dulce Jesús mío, mi Niño adorado! ¡Ven a nuestras almas! ¡Ven no tardes tanto!\n\n(Cantemos con alegría, esperando la llegada del Niño Dios, que trae consigo la[...]',
                 leader: 'Andres Felipe Montoya y Hector Isaza',
             },
         ];
 
-        // --- Sponsors List from PDF ---
         const sponsors = [
             { name: 'Colombian Products and Services', role: 'Anfitrión Principal' },
             { name: 'Tierra De Gigantes', role: 'Apoyo' },
@@ -488,20 +620,38 @@
             { name: 'Familia y amigos', role: 'Agradecimientos Especiales' },
         ];
 
-
-        // --- JavaScript Functionality ---
         document.addEventListener('DOMContentLoaded', () => {
-            // 1. Initialize Lucide Icons
+            // Ensure scavenger hunt and any session persistence are cleared on page load/refresh
+            try {
+                sessionStorage.removeItem('hunt-found');
+                localStorage.removeItem('hunt-found');
+            } catch (e) { /* ignore */ }
+
+            // Also remove potential classes from DOM (in case - but usually a fresh load has none)
+            document.querySelectorAll('.scavenger-icon.collected').forEach(n => n.classList.remove('collected'));
+            document.querySelectorAll('.hidden-clue.clue-found').forEach(n => n.classList.remove('clue-found'));
+            document.querySelectorAll('.hidden-clue.collecting').forEach(n => n.classList.remove('collecting'));
+            const finalPrize = document.getElementById('final-prize');
+            if (finalPrize) finalPrize.classList.add('hidden');
+
+            // Add a beforeunload handler to clear persistence so refresh also clears
+            window.addEventListener('beforeunload', () => {
+                try {
+                    sessionStorage.removeItem('hunt-found');
+                    localStorage.removeItem('hunt-found');
+                } catch (e) { }
+            });
+
+            // Initialize Lucide Icons
             if (typeof lucide !== 'undefined') {
                 lucide.createIcons();
             }
 
-            // 2. Populate Accordion Section
+            // Populate Accordion Section
             const accordionContainer = document.getElementById('accordion-container');
             if (accordionContainer) {
                 prayers.forEach((prayer, index) => {
                     const id = `prayer-${index}`;
-                    // Use darker background for the prayer content
                     const html = `
                         <div class="border border-purple-600 section-card rounded-xl mb-4 shadow-xl overflow-hidden"> 
                             <button
@@ -510,7 +660,9 @@
                             >
                                 <span>${prayer.title}</span>
                                 <span class="text-gray-400 text-sm italic mr-2 hidden md:block">(${prayer.leader})</span>
-                                <svg class="accordion-icon icon-rotate w-5 h-5 ml-2 transition-transform duration-300 text-yellow-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+                                <svg class="accordion-icon icon-rotate w-5 h-5 ml-2 transition-transform duration-300 text-yellow-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                                </svg>
                             </button>
                             <div id="${id}-content" class="accordion-content">
                                 <div class="text-gray-200 text-sm leading-relaxed whitespace-pre-line bg-purple-900/50 p-4 rounded-b-xl border-t border-purple-700">
@@ -522,7 +674,6 @@
                     accordionContainer.insertAdjacentHTML('beforeend', html);
                 });
 
-                // Add Accordion Logic
                 document.querySelectorAll('.accordion-toggle').forEach(button => {
                     button.addEventListener('click', () => {
                         const targetSelector = button.getAttribute('data-target');
@@ -533,7 +684,6 @@
                             content.classList.remove('open');
                             icon.classList.remove('open');
                         } else {
-                            // Close others
                             document.querySelectorAll('.accordion-content.open').forEach(openContent => {
                                 openContent.classList.remove('open');
                                 openContent.previousElementSibling.querySelector('.accordion-icon').classList.remove('open');
@@ -546,7 +696,7 @@
                 });
             }
 
-            // 3. Populate Sponsors Section
+            // Populate Sponsors Section
             const sponsorsContainer = document.getElementById('sponsors-container');
             if (sponsorsContainer) {
                 sponsors.forEach(sponsor => {
@@ -560,7 +710,7 @@
                 });
             }
 
-            // --- 4. Trivia Game Logic ---
+            // --- Trivia Game Logic ---
             const triviaContainer = document.getElementById('trivia-game-container');
             const triviaQuestions = [
                 {
@@ -653,7 +803,7 @@
                 const feedback = document.getElementById('trivia-feedback');
                 const nextButton = document.getElementById('next-trivia');
 
-                document.querySelectorAll('.trivia-option').forEach(btn => btn.disabled = true); // Disable all buttons
+                document.querySelectorAll('.trivia-option').forEach(btn => btn.disabled = true);
 
                 if (selectedAnswer === correctAnswer) {
                     score++;
@@ -663,7 +813,6 @@
                 } else {
                     selectedOption.classList.remove('bg-purple-800', 'hover:bg-purple-700/80');
                     selectedOption.classList.add('bg-red-600', 'hover:bg-red-500');
-                    // Highlight correct answer
                     document.querySelectorAll('.trivia-option').forEach(btn => {
                         if (btn.getAttribute('data-answer') === correctAnswer) {
                             btn.classList.add('bg-blue-600');
@@ -676,7 +825,7 @@
                 nextButton.disabled = false;
                 nextButton.classList.remove('bg-gray-500', 'opacity-50', 'cursor-not-allowed');
                 nextButton.classList.add('bg-pink-500', 'hover:bg-pink-600');
-                nextButton.addEventListener('click', nextTriviaQuestion);
+                nextButton.addEventListener('click', nextTriviaQuestion, { once: true });
             }
 
             function nextTriviaQuestion() {
@@ -684,18 +833,18 @@
                 renderTrivia();
             }
 
-            // Expose resetTrivia globally so the button can call it after the game ends
             window.resetTrivia = function () {
                 currentQuestionIndex = 0;
                 score = 0;
                 renderTrivia();
             }
 
-            // Initialize Trivia Game
+            // Initialize Trivia Game (fresh on every load)
+            currentQuestionIndex = 0;
+            score = 0;
             renderTrivia();
 
-
-            // --- 5. Memory Match Game Logic ---
+            // --- Memory Match Game Logic ---
             const memoryContainer = document.getElementById('memory-game-container');
             const cardSymbols = ['🎄', '🎁', '🌟', '🔔', '🎅', '🕯️'];
             let gameCards = [];
@@ -756,7 +905,6 @@
                 `;
             }
 
-            // Expose handleCardClick globally for the HTML onclick attribute
             window.handleCardClick = function (cardElement, index) {
                 if (!canFlip || cardElement.classList.contains('flipped') || cardElement.classList.contains('matched')) {
                     return;
@@ -779,10 +927,8 @@
                 const messageBox = document.getElementById('memory-message');
 
                 if (card1.symbol === card2.symbol) {
-                    // Match found
                     card1.element.classList.add('matched');
                     card2.element.classList.add('matched');
-                    // Remove flipped class but not immediately, so the color transition works
                     setTimeout(() => {
                         card1.element.classList.remove('flipped');
                         card2.element.classList.remove('flipped');
@@ -798,11 +944,10 @@
                         `;
                     }
                 } else {
-                    // No match
                     setTimeout(() => {
                         card1.element.classList.remove('flipped');
                         card2.element.classList.remove('flipped');
-                    }, 500); // Give player time to see the mismatched cards
+                    }, 500);
 
                     messageBox.textContent = "Intenta de nuevo...";
                 }
@@ -812,8 +957,117 @@
                 setTimeout(() => messageBox.textContent = "", 1500);
             }
 
-            // Initialize Memory Game
+            // Initialize Memory Game (fresh on every load)
             window.initializeMemoryGame();
+
+            // --- Scavenger Hunt (HUNT object) ---
+            window.HUNT = {
+                foundClues: new Set(),
+                totalClues: 4,
+                init() {
+                    this.clueElements = Array.from(document.querySelectorAll('.hidden-clue'));
+                    this.iconElements = Array.from(document.querySelectorAll('.scavenger-icon'));
+                    this.trackerEl = document.getElementById('scavenger-tracker');
+                    this.finalPrize = document.getElementById('final-prize');
+                    this.fireworks = document.getElementById('fireworks-overlay');
+
+                    this.clueElements.forEach(el => {
+                        el.setAttribute('tabindex', '0');
+                        el.addEventListener('click', (e) => this.handleClueClick(e, el));
+                        el.addEventListener('keydown', (ev) => {
+                            if (ev.key === 'Enter' || ev.key === ' ') {
+                                ev.preventDefault();
+                                this.handleClueClick(ev, el);
+                            }
+                        });
+                    });
+
+                    // Do NOT restore from sessionStorage — we reset on page load/refresh
+                    this.updateTracker();
+                },
+
+                handleClueClick(event, el) {
+                    const clueId = el.getAttribute('data-clue-id');
+                    if (!clueId || this.foundClues.has(clueId)) return;
+
+                    el.classList.add('collecting');
+
+                    setTimeout(() => {
+                        el.classList.remove('collecting');
+                        el.classList.add('clue-found');
+                        this.foundClues.add(clueId);
+                        // We still write to sessionStorage during session, but it is cleared on reload
+                        try {
+                            sessionStorage.setItem('hunt-found', JSON.stringify([...this.foundClues]));
+                        } catch (e) { }
+                        this.updateTracker();
+                    }, 500);
+                },
+
+                updateTracker() {
+                    this.iconElements.forEach(icon => {
+                        const id = icon.getAttribute('data-clue-id');
+                        if (this.foundClues.has(id)) {
+                            icon.classList.add('collected');
+                        } else {
+                            icon.classList.remove('collected');
+                        }
+                    });
+
+                    this.clueElements.forEach(el => {
+                        const id = el.getAttribute('data-clue-id');
+                        if (this.foundClues.has(id)) {
+                            el.classList.add('clue-found');
+                            el.classList.remove('collecting');
+                        } else {
+                            el.classList.remove('clue-found', 'collecting');
+                        }
+                    });
+
+                    if (this.foundClues.size === this.totalClues) {
+                        this.showCelebration();
+                    }
+                },
+
+                showCelebration() {
+                    const tracker = document.getElementById('scavenger-tracker');
+                    if (tracker) tracker.scrollIntoView({ behavior: 'smooth', block: 'center' });
+
+                    if (this.finalPrize) this.finalPrize.classList.remove('hidden');
+
+                    if (!this.fireworks) return;
+                    this.fireworks.classList.remove('hidden');
+                    this.fireworks.classList.add('active');
+
+                    this.fireworks.querySelectorAll('.burst').forEach(n => n.remove());
+
+                    const count = 7;
+                    for (let i = 0; i < count; i++) {
+                        const burst = document.createElement('div');
+                        burst.className = 'burst';
+                        const leftOffset = 50 + (Math.random() - 0.5) * 60;
+                        const topOffset = 40 + (Math.random() - 0.5) * 50;
+                        burst.style.left = leftOffset + '%';
+                        burst.style.top = topOffset + '%';
+                        burst.style.background = `radial-gradient(circle at 30% 30%, #fff, ${['#f43f5e', '#fb923c', '#facc15', '#34d399', '#60a5fa'][i % 5]} 40%, transparent 60%)`;
+                        burst.style.animationDelay = (i * 80) + 'ms';
+                        burst.style.width = (8 + Math.random() * 12) + 'px';
+                        burst.style.height = (8 + Math.random() * 12) + 'px';
+                        this.fireworks.appendChild(burst);
+                    }
+
+                    setTimeout(() => {
+                        if (this.fireworks) {
+                            this.fireworks.classList.remove('active');
+                            this.fireworks.classList.add('hidden');
+                            this.fireworks.querySelectorAll('.burst').forEach(n => n.remove());
+                        }
+                    }, 4000);
+                }
+            };
+
+            // Initialize hunt (fresh state on each load)
+            window.HUNT.init();
         });
     </script>
 </body>
