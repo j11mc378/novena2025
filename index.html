@@ -1,5 +1,6 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="es" class="overflow-x-hidden">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -13,13 +14,14 @@
             font-family: 'Inter', sans-serif;
             scroll-behavior: smooth;
             /* 1. APPLY NIGHT SKY BACKGROUND TO THE ENTIRE BODY (Working URL) */
-            background-image: url('https://i.imgur.com/5CmW4Z9.png'); 
+            background-image: url('https://i.imgur.com/5CmW4Z9.png');
             background-size: cover;
             background-position: center;
             background-attachment: fixed;
             min-height: 100vh;
-            background-color: #000033; 
+            background-color: #000033;
             position: relative;
+            overflow-x: hidden;
         }
 
         /* 2. OVERLAY FOR BETTER TEXT READABILITY */
@@ -31,24 +33,27 @@
             right: 0;
             bottom: 0;
             background: rgba(0, 0, 0, 0.75);
-            z-index: -1; 
+            z-index: -1;
         }
-        
+
         .content-container {
             z-index: 2;
             position: relative;
-            max-width: 1024px; /* Setting a Max Width for content */
+            max-width: 1024px;
+            /* Setting a Max Width for content */
         }
 
         /* Styling for the header container to manage the background and blur */
         .header-container {
             /* Ensures the backdrop-blur property works on the header background */
-            background: rgba(76, 29, 149, 0.7); /* bg-purple-900/70 */
+            background: rgba(76, 29, 149, 0.7);
+            /* bg-purple-900/70 */
         }
-        
+
         /* Section cards for better contrast against the dark background */
         .section-card {
-            background-color: rgba(255, 255, 255, 0.08); /* Light transparency */
+            background-color: rgba(255, 255, 255, 0.08);
+            /* Light transparency */
         }
 
         /* Accordion transition for max-height */
@@ -62,12 +67,13 @@
         }
 
         .accordion-content.open {
-            max-height: 1000px; /* Large value to accommodate content */
+            max-height: 1000px;
+            /* Large value to accommodate content */
             opacity: 1;
-            padding-top: 0.75rem; 
-            padding-bottom: 1rem; 
+            padding-top: 0.75rem;
+            padding-bottom: 1rem;
         }
-        
+
         .icon-rotate.open {
             transform: rotate(180deg);
         }
@@ -89,31 +95,36 @@
             align-items: center;
             font-size: 2.5rem;
             cursor: pointer;
-            background-color: #4c1d95; /* purple-900 */
+            background-color: #4c1d95;
+            /* purple-900 */
             border-radius: 10px;
             transition: transform 0.6s, background-color 0.3s;
             transform-style: preserve-3d;
             position: relative;
             box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
-            border: 2px solid #a78bfa; /* violet-400 */
+            border: 2px solid #a78bfa;
+            /* violet-400 */
         }
 
         .memory-card.flipped {
-            background-color: #fcd34d; /* yellow-300 */
-            color: #4c1d95; /* purple-900 */
+            background-color: #fcd34d;
+            /* yellow-300 */
+            color: #4c1d95;
+            /* purple-900 */
         }
 
         .memory-card.matched {
-            background-color: #10b981; /* emerald-500 */
+            background-color: #10b981;
+            /* emerald-500 */
             color: white;
             opacity: 0.8;
             pointer-events: none;
         }
-        
+
         .memory-card.disabled {
             pointer-events: none;
         }
-        
+
         /* Ensure card content is always centered */
         .card-inner {
             width: 100%;
@@ -122,7 +133,7 @@
             justify-content: center;
             align-items: center;
             /* Hide the symbol when not flipped */
-            color: transparent; 
+            color: transparent;
         }
 
         .memory-card.flipped .card-inner,
@@ -139,48 +150,51 @@
         }
     </style>
 </head>
+
 <body class="bg-gray-900 text-white">
 
-    <div class="content-container mx-auto p-6"> 
+    <div class="content-container mx-auto p-6">
 
         <!-- --- Header Section (Updated for Flex Layout) --- -->
         <header class="header-container py-6 rounded-xl shadow-2xl backdrop-blur-sm mb-6">
-            
+
             <div class="flex items-center justify-between px-4 sm:px-8 gap-4">
-                
+
                 <!-- LOGO: Top Left -->
-                <img 
-                    src="https://i.imgur.com/uJ0MHk2.png" 
-                    onerror="this.onerror=null; this.src='https://placehold.co/100x50/FFFFFF/000000?text=LOGO';" 
-                    alt="Logo Colombian Products And Services"
-                    class="h-24 w-auto object-contain rounded-lg shadow-xl"
-                >
+                <img src="https://i.imgur.com/uJ0MHk2.png"
+                    onerror="this.onerror=null; this.src='https://placehold.co/100x50/FFFFFF/000000?text=LOGO';"
+                    alt="Logo Colombian Products And Services" class="h-24 w-auto object-contain rounded-lg shadow-xl">
 
                 <!-- Text Content (Center) -->
                 <div class="flex-grow text-center mx-2 sm:mx-4 min-w-0">
-                    <h1 class="text-3xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight text-yellow-300 whitespace-normal">Novena De Aguinaldos 2025</h1>
+                    <h1
+                        class="text-3xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight text-yellow-300 whitespace-normal">
+                        Novena De Aguinaldos 2025</h1>
                     <p class="text-md sm:text-xl font-medium text-purple-200">Diciembre 21, 6:30 PM</p>
-                    <p class="mt-2 text-xs sm:text-sm italic text-gray-300 hidden md:block">Merry Christmas and Best Wishes for a Joyous Holiday</p>
+                    <p class="mt-2 text-xs sm:text-sm italic text-gray-300 hidden md:block">Merry Christmas and Best
+                        Wishes for a Joyous Holiday</p>
                 </div>
 
                 <!-- DONKEY IMAGE: Top Right -->
-                <img 
-                    src="https://i.imgur.com/ty0vhEp.png" 
-                    onerror="this.onerror=null; this.src='https://placehold.co/64x64/8B4513/FFFFFF?text=Donkey';" 
-                    alt="Donkey Illustration"
-                    class="h-24 w-auto object-cover rounded-full shadow-xl"
-                >
+                <img src="https://i.imgur.com/ty0vhEp.png"
+                    onerror="this.onerror=null; this.src='https://placehold.co/64x64/8B4513/FFFFFF?text=Donkey';"
+                    alt="Donkey Illustration" class="h-24 w-auto object-cover rounded-full shadow-xl">
             </div>
-            
+
         </header>
 
         <!-- --- Sticky Navigation Bar (NEW) --- -->
-        <nav class="sticky top-0 z-30 bg-purple-900/90 backdrop-blur-md rounded-b-xl shadow-2xl mb-8 border-b border-yellow-400">
+        <nav
+            class="sticky top-0 z-30 bg-purple-900/90 backdrop-blur-md rounded-b-xl shadow-2xl mb-8 border-b border-yellow-400">
             <div class="flex justify-around text-center py-2 text-sm sm:text-base font-semibold">
-                <a href="#programa" class="p-2 hover:bg-yellow-500 hover:text-purple-900 rounded-lg transition duration-200">Programa</a>
-                <a href="#oraciones" class="p-2 hover:bg-yellow-500 hover:text-purple-900 rounded-lg transition duration-200">Oraciones</a>
-                <a href="#juegos" class="p-2 hover:bg-yellow-500 hover:text-purple-900 rounded-lg transition duration-200">Juegos</a>
-                <a href="#info" class="p-2 hover:bg-yellow-500 hover:text-purple-900 rounded-lg transition duration-200">Agradecimientos</a>
+                <a href="#programa"
+                    class="p-2 hover:bg-yellow-500 hover:text-purple-900 rounded-lg transition duration-200">Programa</a>
+                <a href="#oraciones"
+                    class="p-2 hover:bg-yellow-500 hover:text-purple-900 rounded-lg transition duration-200">Oraciones</a>
+                <a href="#juegos"
+                    class="p-2 hover:bg-yellow-500 hover:text-purple-900 rounded-lg transition duration-200">Juegos</a>
+                <a href="#info"
+                    class="p-2 hover:bg-yellow-500 hover:text-purple-900 rounded-lg transition duration-200">Agradecimientos</a>
             </div>
         </nav>
 
@@ -191,18 +205,16 @@
             <div class="flex flex-col md:flex-row items-center gap-8">
                 <!-- Nativity Image - WORKING URL -->
                 <div class="md:w-1/2">
-                    <img
-                        id="nativityImage"
-                        src="https://i.imgur.com/MiYCorP.png" 
-                        alt="Nativity Scene"
-                        class="w-full h-auto rounded-xl shadow-2xl object-cover" 
-                        onerror="this.onerror=null; this.src='https://placehold.co/600x400/312e81/ffffff?text=Nativity+Image+Broken';"
-                    >
+                    <img id="nativityImage" src="https://i.imgur.com/MiYCorP.png" alt="Nativity Scene"
+                        class="w-full h-auto rounded-xl shadow-2xl object-cover"
+                        onerror="this.onerror=null; this.src='https://placehold.co/600x400/312e81/ffffff?text=Nativity+Image+Broken';">
                 </div>
 
                 <div class="md:w-1/2">
                     <p class="text-lg mb-4 text-gray-200 leading-relaxed">
-                        El nacimiento de Jesús marcó la esperanza en el mundo entero, deja que la Navidad te envuelva de AMOR. Feliz Navidad a todos los que comparten el deseo de un mundo mejor, lleno de paz y esperanza.
+                        El nacimiento de Jesús marcó la esperanza en el mundo entero, deja que la Navidad te envuelva de
+                        AMOR. Feliz Navidad a todos los que comparten el deseo de un mundo mejor, lleno de paz y
+                        esperanza.
                     </p>
                     <p class="text-sm font-semibold text-yellow-300">Anfitrión Principal: Colombian Products</p>
                 </div>
@@ -211,17 +223,19 @@
             <!-- Location Block (MOVED HERE) -->
             <div class="section-card p-6 rounded-2xl shadow-xl mt-8 border border-yellow-500 bg-purple-900/50">
                 <h3 class="text-2xl font-bold text-yellow-300 mb-3 flex items-center">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-map-pin mr-2 text-yellow-400"><path d="M12 21.7c-4.4-4.4-8-7-8-10.7C4 6 8 2 12 2s8 4 8 9c0 3.7-3.6 6.3-8 10.7z"/><circle cx="12" cy="11" r="3"/></svg>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                        stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                        class="lucide lucide-map-pin mr-2 text-yellow-400">
+                        <path d="M12 21.7c-4.4-4.4-8-7-8-10.7C4 6 8 2 12 2s8 4 8 9c0 3.7-3.6 6.3-8 10.7z" />
+                        <circle cx="12" cy="11" r="3" />
+                    </svg>
                     Lugar del Evento
                 </h3>
                 <p class="text-gray-300 font-medium">Colombian Products And Services</p>
                 <p class="text-gray-400">11301 South Orange Blossom Trail, Suite A107, Orlando, FL 32837</p>
-                <a 
-                    href="https://www.google.com/maps/search/11301+South+Orange+Blossom+Trail,+Suite+A107,+Orlando,+FL+32837" 
-                    target="_blank" 
-                    rel="noopener noreferrer" 
-                    class="inline-block mt-3 px-4 py-2 bg-yellow-500 text-purple-900 font-bold rounded-lg shadow hover:bg-yellow-600 transition duration-150"
-                >
+                <a href="https://www.google.com/maps/search/11301+South+Orange+Blossom+Trail,+Suite+A107,+Orlando,+FL+32837"
+                    target="_blank" rel="noopener noreferrer"
+                    class="inline-block mt-3 px-4 py-2 bg-yellow-500 text-purple-900 font-bold rounded-lg shadow hover:bg-yellow-600 transition duration-150">
                     Ver en Mapa
                 </a>
             </div>
@@ -233,18 +247,29 @@
             <div class="grid md:grid-cols-2 gap-6 text-gray-200">
                 <div>
                     <ul class="space-y-3">
-                        <li class="p-3 bg-purple-800/50 rounded-lg shadow-md"><span class="font-bold text-yellow-400">6:00 PM - 6:40 PM:</span> Llegada asistentes</li>
-                        <li class="p-3 bg-purple-800/50 rounded-lg shadow-md"><span class="font-bold text-yellow-400">6:40 PM - 7:00 PM:</span> Dinámicas de Apertura</li>
-                        <li class="p-3 bg-purple-800/50 rounded-lg shadow-md"><span class="font-bold text-yellow-400">7:00 PM - 7:20 PM:</span> Cortometraje de Navidad / Tema: Que canten los niños</li>
-                        <li class="p-3 bg-purple-800/50 rounded-lg shadow-md"><span class="font-bold text-yellow-400">7:20 PM - 7:30 PM:</span> Historia de Navidad para Niños por Hector Isaza</li>
+                        <li class="p-3 bg-purple-800/50 rounded-lg shadow-md"><span
+                                class="font-bold text-yellow-400">6:00 PM - 6:40 PM:</span> Llegada asistentes</li>
+                        <li class="p-3 bg-purple-800/50 rounded-lg shadow-md"><span
+                                class="font-bold text-yellow-400">6:40 PM - 7:00 PM:</span> Dinámicas de Apertura</li>
+                        <li class="p-3 bg-purple-800/50 rounded-lg shadow-md"><span
+                                class="font-bold text-yellow-400">7:00 PM - 7:20 PM:</span> Cortometraje de Navidad /
+                            Tema: Que canten los niños</li>
+                        <li class="p-3 bg-purple-800/50 rounded-lg shadow-md"><span
+                                class="font-bold text-yellow-400">7:20 PM - 7:30 PM:</span> Historia de Navidad para
+                            Niños por Hector Isaza</li>
                     </ul>
                 </div>
                 <div>
                     <ul class="space-y-3">
-                        <li class="p-3 bg-purple-800/50 rounded-lg shadow-md"><span class="font-bold text-yellow-400">7:30 PM - 8:30 PM:</span> Novena e Interpretación de Villancicos</li>
-                        <li class="p-3 bg-purple-800/50 rounded-lg shadow-md"><span class="font-bold text-yellow-400"></span> Ceremonia de luz (velas y peticiones)</li>
-                        <li class="p-3 bg-purple-800/50 rounded-lg shadow-md"><span class="font-bold text-yellow-400"></span> Ceremonia por la Paz (Globos)</li>
-                        <li class="p-3 bg-purple-800/50 rounded-lg shadow-md"><span class="font-bold text-yellow-400"></span> Presentación Musical y Compartir - Cierre</li>
+                        <li class="p-3 bg-purple-800/50 rounded-lg shadow-md"><span
+                                class="font-bold text-yellow-400">7:30 PM - 8:30 PM:</span> Novena e Interpretación de
+                            Villancicos</li>
+                        <li class="p-3 bg-purple-800/50 rounded-lg shadow-md"><span
+                                class="font-bold text-yellow-400"></span> Ceremonia de luz (velas y peticiones)</li>
+                        <li class="p-3 bg-purple-800/50 rounded-lg shadow-md"><span
+                                class="font-bold text-yellow-400"></span> Ceremonia por la Paz (Globos)</li>
+                        <li class="p-3 bg-purple-800/50 rounded-lg shadow-md"><span
+                                class="font-bold text-yellow-400"></span> Presentación Musical y Compartir - Cierre</li>
                     </ul>
                 </div>
             </div>
@@ -252,11 +277,13 @@
 
         <!-- --- Oraciones y Lecturas (Accordion) --- -->
         <section id="oraciones" class="mb-12">
-            <h2 class="text-4xl font-extrabold text-yellow-300 mb-6 border-b-4 border-pink-300 pb-2 bg-purple-900/50 p-2 rounded-t-lg shadow-md">
+            <h2
+                class="text-4xl font-extrabold text-yellow-300 mb-6 border-b-4 border-pink-300 pb-2 bg-purple-900/50 p-2 rounded-t-lg shadow-md">
                 Oraciones y Consideraciones
             </h2>
             <p class="text-gray-300 mb-6 px-2">
-                A continuación, encuentra el texto completo de las oraciones para que puedas seguir la Novena y participar activamente.
+                A continuación, encuentra el texto completo de las oraciones para que puedas seguir la Novena y
+                participar activamente.
             </p>
             <div id="accordion-container">
                 <!-- Accordion items will be generated here by JavaScript -->
@@ -265,15 +292,48 @@
 
         <!-- --- Juegos y Entretenimiento --- -->
         <section id="juegos" class="mb-12">
-            <h2 class="text-4xl font-extrabold text-yellow-300 mb-6 border-b-4 border-pink-300 pb-2 bg-purple-900/50 p-2 rounded-t-lg shadow-md">
+            <h2
+                class="text-4xl font-extrabold text-yellow-300 mb-6 border-b-4 border-pink-300 pb-2 bg-purple-900/50 p-2 rounded-t-lg shadow-md">
                 Juegos y Entretenimiento
             </h2>
             <div class="grid md:grid-cols-2 gap-6">
-                
+
                 <!-- Game 1: Trivia Game -->
                 <div class="section-card p-6 rounded-xl shadow-xl border-t-4 border-pink-300">
                     <h3 class="text-2xl font-bold mb-3 flex items-center text-pink-300">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-gamepad-2 mr-2"><path d="M21 12v3a1 1 0 0 1-1 1h-2a1 1 0 0 1-1-1v-3a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1Z"/><path d="M3 12v3a1 1 0 0 0 1 1h2a1 1 0 0 0 1-1v-3a1 1 0 0 0-1-1H4a1 1 0 0 0-1 1Z"/><path d="M12 19h1v-1h-1v1Z"/><path d="M10 19h1v-1h-1v1Z"/><path d="M14 19h1v-1h-1v1Z"/><path d="M12 17h1v-1h-1v1Z"/><path d="M10 17h1v-1h-1v1Z"/><path d="M14 17h1v-1h-1v1Z"/><path d="M12 15h1v-1h-1v1Z"/><path d="M10 15h1v-1h-1v1Z"/><path d="M14 15h1v-1h-1v1Z"/><path d="M12 13h1v-1h-1v1Z"/><path d="M10 13h1v-1h-1v1Z"/><path d="M14 13h1v-1h-1v1Z"/><path d="M12 11h1v-1h-1v1Z"/><path d="M10 11h1v-1h-1v1Z"/><path d="M14 11h1v-1h-1v1Z"/><path d="M12 9h1v-1h-1v1Z"/><path d="M10 9h1v-1h-1v1Z"/><path d="M14 9h1v-1h-1v1Z"/><path d="M12 7h1v-1h-1v1Z"/><path d="M10 7h1v-1h-1v1Z"/><path d="M14 7h1v-1h-1v1Z"/><path d="M12 5h1v-1h-1v1Z"/><path d="M10 5h1v-1h-1v1Z"/><path d="M14 5h1v-1h-1v1Z"/><path d="M12 3h1v-1h-1v1Z"/><path d="M10 3h1v-1h-1v1Z"/><path d="M14 3h1v-1h-1v1Z"/></svg>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                            class="lucide lucide-gamepad-2 mr-2">
+                            <path d="M21 12v3a1 1 0 0 1-1 1h-2a1 1 0 0 1-1-1v-3a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1Z" />
+                            <path d="M3 12v3a1 1 0 0 0 1 1h2a1 1 0 0 0 1-1v-3a1 1 0 0 0-1-1H4a1 1 0 0 0-1 1Z" />
+                            <path d="M12 19h1v-1h-1v1Z" />
+                            <path d="M10 19h1v-1h-1v1Z" />
+                            <path d="M14 19h1v-1h-1v1Z" />
+                            <path d="M12 17h1v-1h-1v1Z" />
+                            <path d="M10 17h1v-1h-1v1Z" />
+                            <path d="M14 17h1v-1h-1v1Z" />
+                            <path d="M12 15h1v-1h-1v1Z" />
+                            <path d="M10 15h1v-1h-1v1Z" />
+                            <path d="M14 15h1v-1h-1v1Z" />
+                            <path d="M12 13h1v-1h-1v1Z" />
+                            <path d="M10 13h1v-1h-1v1Z" />
+                            <path d="M14 13h1v-1h-1v1Z" />
+                            <path d="M12 11h1v-1h-1v1Z" />
+                            <path d="M10 11h1v-1h-1v1Z" />
+                            <path d="M14 11h1v-1h-1v1Z" />
+                            <path d="M12 9h1v-1h-1v1Z" />
+                            <path d="M10 9h1v-1h-1v1Z" />
+                            <path d="M14 9h1v-1h-1v1Z" />
+                            <path d="M12 7h1v-1h-1v1Z" />
+                            <path d="M10 7h1v-1h-1v1Z" />
+                            <path d="M14 7h1v-1h-1v1Z" />
+                            <path d="M12 5h1v-1h-1v1Z" />
+                            <path d="M10 5h1v-1h-1v1Z" />
+                            <path d="M14 5h1v-1h-1v1Z" />
+                            <path d="M12 3h1v-1h-1v1Z" />
+                            <path d="M10 3h1v-1h-1v1Z" />
+                            <path d="M14 3h1v-1h-1v1Z" />
+                        </svg>
                         Novena Trivia
                     </h3>
                     <p class="text-sm mb-4 text-gray-400">
@@ -287,7 +347,48 @@
                 <!-- Game 2: Memory Match -->
                 <div class="section-card p-6 rounded-xl shadow-xl border-t-4 border-yellow-300">
                     <h3 class="text-2xl font-bold mb-3 flex items-center text-yellow-300">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-twinning-two mr-2"><path d="M7 21v-1a4 4 0 0 0-4-4H3c-2.2 0-4-1.8-4-4v-1c0-2.2 1.8-4 4-4h4"/><path d="M17 21v-1a4 4 0 0 1 4-4h4c2.2 0 4-1.8 4-4v-1c0-2.2-1.8-4-4-4h-4"/><path d="M12 11h1v-1h-1v1Z"/><path d="M10 11h1v-1h-1v1Z"/><path d="M14 11h1v-1h-1v1Z"/><path d="M12 9h1v-1h-1v1Z"/><path d="M10 9h1v-1h-1v1Z"/><path d="M14 9h1v-1h-1v1Z"/><path d="M12 7h1v-1h-1v1Z"/><path d="M10 7h1v-1h-1v1Z"/><path d="M14 7h1v-1h-1v1Z"/><path d="M12 5h1v-1h-1v1Z"/><path d="M10 5h1v-1h-1v1Z"/><path d="M14 5h1v-1h-1v1Z"/><path d="M12 3h1v-1h-1v1Z"/><path d="M10 3h1v-1h-1v1Z"/><path d="M14 3h1v-1h-1v1Z"/><path d="M12 1h1v-1h-1v1Z"/><path d="M10 1h1v-1h-1v1Z"/><path d="M14 1h1v-1h-1v1Z"/><path d="M12 13h1v-1h-1v1Z"/><path d="M10 13h1v-1h-1v1Z"/><path d="M14 13h1v-1h-1v1Z"/><path d="M12 15h1v-1h-1v1Z"/><path d="M10 15h1v-1h-1v1Z"/><path d="M14 15h1v-1h-1v1Z"/><path d="M12 17h1v-1h-1v1Z"/><path d="M10 17h1v-1h-1v1Z"/><path d="M14 17h1v-1h-1v1Z"/><path d="M12 19h1v-1h-1v1Z"/><path d="M10 19h1v-1h-1v1Z"/><path d="M14 19h1v-1h-1v1Z"/><path d="M12 21h1v-1h-1v1Z"/><path d="M10 21h1v-1h-1v1Z"/><path d="M14 21h1v-1h-1v1Z"/><path d="M12 23h1v-1h-1v1Z"/><path d="M10 23h1v-1h-1v1Z"/><path d="M14 23h1v-1h-1v1Z"/></svg>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                            class="lucide lucide-twinning-two mr-2">
+                            <path d="M7 21v-1a4 4 0 0 0-4-4H3c-2.2 0-4-1.8-4-4v-1c0-2.2 1.8-4 4-4h4" />
+                            <path d="M17 21v-1a4 4 0 0 1 4-4h4c2.2 0 4-1.8 4-4v-1c0-2.2-1.8-4-4-4h-4" />
+                            <path d="M12 11h1v-1h-1v1Z" />
+                            <path d="M10 11h1v-1h-1v1Z" />
+                            <path d="M14 11h1v-1h-1v1Z" />
+                            <path d="M12 9h1v-1h-1v1Z" />
+                            <path d="M10 9h1v-1h-1v1Z" />
+                            <path d="M14 9h1v-1h-1v1Z" />
+                            <path d="M12 7h1v-1h-1v1Z" />
+                            <path d="M10 7h1v-1h-1v1Z" />
+                            <path d="M14 7h1v-1h-1v1Z" />
+                            <path d="M12 5h1v-1h-1v1Z" />
+                            <path d="M10 5h1v-1h-1v1Z" />
+                            <path d="M14 5h1v-1h-1v1Z" />
+                            <path d="M12 3h1v-1h-1v1Z" />
+                            <path d="M10 3h1v-1h-1v1Z" />
+                            <path d="M14 3h1v-1h-1v1Z" />
+                            <path d="M12 1h1v-1h-1v1Z" />
+                            <path d="M10 1h1v-1h-1v1Z" />
+                            <path d="M14 1h1v-1h-1v1Z" />
+                            <path d="M12 13h1v-1h-1v1Z" />
+                            <path d="M10 13h1v-1h-1v1Z" />
+                            <path d="M14 13h1v-1h-1v1Z" />
+                            <path d="M12 15h1v-1h-1v1Z" />
+                            <path d="M10 15h1v-1h-1v1Z" />
+                            <path d="M14 15h1v-1h-1v1Z" />
+                            <path d="M12 17h1v-1h-1v1Z" />
+                            <path d="M10 17h1v-1h-1v1Z" />
+                            <path d="M14 17h1v-1h-1v1Z" />
+                            <path d="M12 19h1v-1h-1v1Z" />
+                            <path d="M10 19h1v-1h-1v1Z" />
+                            <path d="M14 19h1v-1h-1v1Z" />
+                            <path d="M12 21h1v-1h-1v1Z" />
+                            <path d="M10 21h1v-1h-1v1Z" />
+                            <path d="M14 21h1v-1h-1v1Z" />
+                            <path d="M12 23h1v-1h-1v1Z" />
+                            <path d="M10 23h1v-1h-1v1Z" />
+                            <path d="M14 23h1v-1h-1v1Z" />
+                        </svg>
                         Juego de Memoria Navideña
                     </h3>
                     <p class="text-sm mb-4 text-gray-400">
@@ -303,7 +404,8 @@
 
         <!-- --- Agradecimientos (Updated after location move) --- -->
         <section id="info" class="mb-12">
-            <h2 class="text-4xl font-extrabold text-yellow-300 mb-6 border-b-4 border-pink-300 pb-2 bg-purple-900/50 p-2 rounded-t-lg shadow-md">
+            <h2
+                class="text-4xl font-extrabold text-yellow-300 mb-6 border-b-4 border-pink-300 pb-2 bg-purple-900/50 p-2 rounded-t-lg shadow-md">
                 Agradecimientos Especiales
             </h2>
 
@@ -330,34 +432,34 @@
     <script>
         // --- Data Replication from PDF and Component Generation ---
         const prayers = [
-            { 
-                title: 'Oración para todos los días', 
-                content: 'Benignísimo Dios de infinita caridad, que tanto amasteis a los hombres, que les disteis en vuestro Hijo la prenda de vuestro amor, para que hecho hombre en las entrañas de una Virgen, naciese en un pesebre para nuestra salud y remedio. Os ruego, por este inefable misterio, que me deis la gracia de hacer mi novena con fervor, y que el Niño Jesús nazca espiritualmente en mi alma, para que sea mi guía y mi fuerza en todo momento. Amén.', 
-                leader: 'Comunidad' 
+            {
+                title: 'Oración para todos los días',
+                content: 'Benignísimo Dios de infinita caridad, que tanto amasteis a los hombres, que les disteis en vuestro Hijo la prenda de vuestro amor, para que hecho hombre en las entrañas de una Virgen, naciese en un pesebre para nuestra salud y remedio. Os ruego, por este inefable misterio, que me deis la gracia de hacer mi novena con fervor, y que el Niño Jesús nazca espiritualmente en mi alma, para que sea mi guía y mi fuerza en todo momento. Amén.',
+                leader: 'Comunidad'
             },
-            { 
-                title: 'Oración a la Santísima Virgen María', 
-                content: 'Soberana María que por vuestras grandes virtudes y especialmente por vuestra humildad, merecisteis ser escogida por Dios para Madre de su Hijo Unigénito. Os suplico que vuestra inmensa bondad me alcance de vuestro divino Hijo la gracia de hacer mi novena con fervor, para que nazca en mi corazón la paz y la alegría de la Navidad, y pueda yo, como vos, guardar todas estas cosas, meditándolas en mi corazón. Dios te salve, María...', 
-                leader: 'Comunidad' 
+            {
+                title: 'Oración a la Santísima Virgen María',
+                content: 'Soberana María que por vuestras grandes virtudes y especialmente por vuestra humildad, merecisteis ser escogida por Dios para Madre de su Hijo Unigénito. Os suplico que vuestra inmensa bondad me alcance de vuestro divino Hijo la gracia de hacer mi novena con fervor, para que nazca en mi corazón la paz y la alegría de la Navidad, y pueda yo, como vos, guardar todas estas cosas, meditándolas en mi corazón. Dios te salve, María...',
+                leader: 'Comunidad'
             },
-            { 
-                title: 'Oración a San José', 
-                content: 'Oh Santísimo José, esposo de María y padre adoptivo de Jesús. Os ruego que intercedáis por mí ante el Niño Jesús para que en esta Novena me conceda las gracias que necesito para mi salvación y la de mi familia. Enseñadnos a ser custodios del hogar, trabajadores en el silencio y fieles servidores de Dios, como lo fuisteis vos. Amén.', 
-                leader: 'Comunidad' 
+            {
+                title: 'Oración a San José',
+                content: 'Oh Santísimo José, esposo de María y padre adoptivo de Jesús. Os ruego que intercedáis por mí ante el Niño Jesús para que en esta Novena me conceda las gracias que necesito para mi salvación y la de mi familia. Enseñadnos a ser custodios del hogar, trabajadores en el silencio y fieles servidores de Dios, como lo fuisteis vos. Amén.',
+                leader: 'Comunidad'
             },
-            { 
-                title: 'Consideración del Día (Diciembre 21)', 
-                content: 'Por Hector Isaza:\n\nEn este primer día, el corazón se llena de la expectación de la inminente llegada del Redentor. La tradición de la Novena no es solo un recuerdo, sino una preparación activa. Pensemos en el burro que llevó a María a Belén: un simple animal, pero parte esencial del plan divino. Así, cada uno de nosotros, por simple que sea nuestra tarea, es fundamental en el tejido de la fe. Reflexionemos hoy sobre la humildad y la disposición, preparándonos para recibir a Jesús no solo en el pesebre, sino en la cuna de nuestro espíritu.', 
+            {
+                title: 'Consideración del Día (Diciembre 21)',
+                content: 'Por Hector Isaza:\n\nEn este primer día, el corazón se llena de la expectación de la inminente llegada del Redentor. La tradición de la Novena no es solo un recuerdo, sino una preparación activa. Pensemos en el burro que llevó a María a Belén: un simple animal, pero parte esencial del plan divino. Así, cada uno de nosotros, por simple que sea nuestra tarea, es fundamental en el tejido de la fe. Reflexionemos hoy sobre la humildad y la disposición, preparándonos para recibir a Jesús no solo en el pesebre, sino en la cuna de nuestro espíritu.',
                 leader: 'Hector Isaza',
             },
-            { 
-                title: 'Oración al Niño Jesús', 
-                content: 'Acuérdate, ¡oh dulcísimo Niño Jesús!, que dijisteis: “Pedid y recibiréis, buscad y hallaréis, llamad y se os abrirá”. Confiando en tu palabra, vengo a pedirte con Fe viva la gracia que tanto necesito... (Mencione su petición en silencio). Ilumina mi mente y mi corazón para que pueda vivir la Navidad con verdadero sentido cristiano, y que tu amor me acompañe siempre. Amén.', 
+            {
+                title: 'Oración al Niño Jesús',
+                content: 'Acuérdate, ¡oh dulcísimo Niño Jesús!, que dijisteis: “Pedid y recibiréis, buscad y hallaréis, llamad y se os abrirá”. Confiando en tu palabra, vengo a pedirte con Fe viva la gracia que tanto necesito... (Mencione su petición en silencio). Ilumina mi mente y mi corazón para que pueda vivir la Navidad con verdadero sentido cristiano, y que tu amor me acompañe siempre. Amén.',
                 leader: 'Hector Isaza',
             },
-            { 
-                title: 'Gozos (Cantos de la Novena)', 
-                content: '¡Dulce Jesús mío, mi Niño adorado! ¡Ven a nuestras almas! ¡Ven no tardes tanto!\n\n(Cantemos con alegría, esperando la llegada del Niño Dios, que trae consigo la paz y la esperanza a nuestros corazones).', 
+            {
+                title: 'Gozos (Cantos de la Novena)',
+                content: '¡Dulce Jesús mío, mi Niño adorado! ¡Ven a nuestras almas! ¡Ven no tardes tanto!\n\n(Cantemos con alegría, esperando la llegada del Niño Dios, que trae consigo la paz y la esperanza a nuestros corazones).',
                 leader: 'Andres Felipe Montoya y Hector Isaza',
             },
         ];
@@ -487,7 +589,7 @@
                     answer: "Una Estrella"
                 }
             ];
-            
+
             let currentQuestionIndex = 0;
             let score = 0;
             let answered = false;
@@ -583,7 +685,7 @@
             }
 
             // Expose resetTrivia globally so the button can call it after the game ends
-            window.resetTrivia = function() {
+            window.resetTrivia = function () {
                 currentQuestionIndex = 0;
                 score = 0;
                 renderTrivia();
@@ -609,12 +711,12 @@
                 }
             }
 
-            window.initializeMemoryGame = function() {
+            window.initializeMemoryGame = function () {
                 if (!memoryContainer) return;
-                
+
                 gameCards = [...cardSymbols, ...cardSymbols];
                 shuffle(gameCards);
-                
+
                 flippedCards = [];
                 matchesFound = 0;
                 moveCount = 0;
@@ -655,7 +757,7 @@
             }
 
             // Expose handleCardClick globally for the HTML onclick attribute
-            window.handleCardClick = function(cardElement, index) {
+            window.handleCardClick = function (cardElement, index) {
                 if (!canFlip || cardElement.classList.contains('flipped') || cardElement.classList.contains('matched')) {
                     return;
                 }
@@ -684,8 +786,8 @@
                     setTimeout(() => {
                         card1.element.classList.remove('flipped');
                         card2.element.classList.remove('flipped');
-                    }, 50); 
-                    
+                    }, 50);
+
                     messageBox.textContent = "¡Pareja encontrada!";
                     matchesFound++;
 
@@ -701,7 +803,7 @@
                         card1.element.classList.remove('flipped');
                         card2.element.classList.remove('flipped');
                     }, 500); // Give player time to see the mismatched cards
-                    
+
                     messageBox.textContent = "Intenta de nuevo...";
                 }
 
@@ -709,10 +811,11 @@
                 canFlip = true;
                 setTimeout(() => messageBox.textContent = "", 1500);
             }
-            
+
             // Initialize Memory Game
             window.initializeMemoryGame();
         });
     </script>
 </body>
+
 </html>
