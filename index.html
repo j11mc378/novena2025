@@ -58,7 +58,7 @@
         }
 
         .accordion-content.open {
-            max-height: 1000px;
+            max-height: none;
             opacity: 1;
             padding-top: 0.75rem;
             padding-bottom: 1rem;
@@ -404,32 +404,60 @@
                 <div>
                     <ul class="space-y-3">
                         <li class="p-3 bg-purple-800/50 rounded-lg shadow-md"><span
-                                class="font-bold text-yellow-400">6:00 PM - 6:40 PM:</span> Llegada asistentes
+                                class="font-bold text-yellow-400">6:00 PM - 6:30 PM:</span> Llegada asistentes
                             <span class="hidden-clue" data-clue-id="clue2"
                                 title="Pista 2 - Regalo 🎁 (Haz clic para recolectarla)" aria-label="Pista 2 regalo"
                                 role="button" tabindex="0">🎁</span>
                         </li>
                         <li class="p-3 bg-purple-800/50 rounded-lg shadow-md"><span
-                                class="font-bold text-yellow-400">6:40 PM - 7:00 PM:</span> Dinámicas de Apertura</li>
+                                class="font-bold text-yellow-400">6:30 PM - 6:45 PM:</span> Villancicos
+                        </li>
                         <li class="p-3 bg-purple-800/50 rounded-lg shadow-md"><span
-                                class="font-bold text-yellow-400">7:00 PM - 7:20 PM:</span> Cortometraje de Navidad /
-                            Tema: Que canten los niños</li>
+                                class="font-bold text-yellow-400">6:45 PM - 7:00 PM:</span> Dinámicas de Apertura
+                        </li>
                         <li class="p-3 bg-purple-800/50 rounded-lg shadow-md"><span
-                                class="font-bold text-yellow-400">7:20 PM - 7:30 PM:</span> Historia de Navidad para
+                                class="font-bold text-yellow-400">7:00 PM - 7:15 PM:</span> Historia de Navidad para
                             Niños por Hector Isaza</li>
+                        <li class="p-3 bg-purple-800/50 rounded-lg shadow-md"><span
+                                class="font-bold text-yellow-400">7:15 PM - 7:40 PM:</span> Procesión
+                        </li>
+                        <li class="p-3 bg-purple-800/50 rounded-lg shadow-md"><span
+                                class="font-bold text-yellow-400">7:40 PM - 7:50 PM:</span> Cortometraje De Navidad.
+                            Tema: Resiste
+                        </li>
+                        <li class="p-3 bg-purple-800/50 rounded-lg shadow-md"><span
+                                class="font-bold text-yellow-400">8:00 PM - 8:30 PM:</span> Novena</li>
                     </ul>
                 </div>
                 <div>
                     <ul class="space-y-3">
+
                         <li class="p-3 bg-purple-800/50 rounded-lg shadow-md"><span
-                                class="font-bold text-yellow-400">7:30 PM - 8:30 PM:</span> Novena e Interpretación de
-                            Villancicos</li>
+                                class="font-bold text-yellow-400"></span> Interpretación de Consideracion (Luis Velez)
+                        </li>
                         <li class="p-3 bg-purple-800/50 rounded-lg shadow-md"><span
-                                class="font-bold text-yellow-400"></span> Ceremonia de luz (velas y peticiones)</li>
+                                class="font-bold text-yellow-400"></span> Ceremonia de Luz - Velas y Peticiones (Hector
+                            Isaza) </li>
+
                         <li class="p-3 bg-purple-800/50 rounded-lg shadow-md"><span
-                                class="font-bold text-yellow-400"></span> Ceremonia por la Paz (Globos)</li>
+                                class="font-bold text-yellow-400"></span> Oración al Niño Jesús (Luis Velez)
+                        </li>
                         <li class="p-3 bg-purple-800/50 rounded-lg shadow-md"><span
-                                class="font-bold text-yellow-400"></span> Presentación Musical y Compartir - Cierre</li>
+                                class="font-bold text-yellow-400"></span> Gozos (Blanca Pelaez y Hector Isaza)
+                        </li>
+                        <li class="p-3 bg-purple-800/50 rounded-lg shadow-md"><span
+                                class="font-bold text-yellow-400"></span> Ceremonia por la paz - Globos (Luis Velez)
+                        </li>
+                        <li class="p-3 bg-purple-800/50 rounded-lg shadow-md"><span
+                                class="font-bold text-yellow-400"></span> Villancicos - Todos
+                        </li>
+                        <li class="p-3 bg-purple-800/50 rounded-lg shadow-md"><span
+                                class="font-bold text-yellow-400"></span> Presentación musical (Joselito y su orquesta)
+                        </li>
+                        <li class="p-3 bg-purple-800/50 rounded-lg shadow-md"><span
+                                class="font-bold text-yellow-400"></span> Compartir - Cierre - Sorpresitas, Fotos con
+                            Santa, Antojitos/pasabocas tradicionales
+                        </li>
                     </ul>
                 </div>
             </div>
@@ -567,57 +595,129 @@
         const prayers = [
             {
                 title: 'Oración para todos los días',
-                content: 'Benignísimo Dios de infinita caridad, que tanto amasteis a los hombres, que les disteis en vuestro Hijo la prenda de vuestro amor, para que hecho hombre en las entraña[...]',
-                leader: 'Comunidad'
+                content: `Benignísimo Dios de infinita caridad, que tanto amasteis a los hombres, que les disteis en vuestro Hijo la mejor prenda de vuestro amor para que hecho hombre en las entrañas de una Virgen, naciese en un pesebre para nuestra salud y remedio; 
+                yo, en nombre de todos los mortales, os doy infinitas gracias por tan soberano beneficio. 
+                
+                En torno a él os ofrezco la pobreza, humildad y demás virtudes de vuestro hijo humanado; suplicándoos por sus divinos méritos, por las incomodidades con que nació y por las tiernas lágrimas que derramó en su pesebre, que dispongáis nuestros corazones con humildad profunda, con amor encendido, con total desprecio de todo lo terreno, para que Jesús recién nacido tenga en ellos su cuna y more eternamente. 
+                
+                Amén. 
+                
+                (Se reza tres veces el Gloria al Padre).`,
+                leader: 'Luis Velez'
             },
             {
                 title: 'Oración a la Santísima Virgen María',
-                content: 'Soberana María que por vuestras grandes virtudes y especialmente por vuestra humildad, merecisteis ser escogida por Dios para Madre de su Hijo Unigénito. Os suplico qu[...]',
-                leader: 'Comunidad'
+                content: `Soberana María, que por tus grandes virtudes y especialmente por tu humildad, mereciste que todo un Dios te escogiera por madre suya, te suplico que tu misma prepares y dispongas mi alma, y la de todos los que en este tiempo hagan esta novena, para el nacimiento espiritual de tu adorado Hijo. 
+                
+                ¡Oh dulcísima Madre! Comunícame algo del profundo recogimiento y divina ternura con la que guardaste tu, para que nos hagas menos indignos de verle, amarle y adorarle por toda la eternidad. 
+                
+                Amén. 
+                
+                (Se reza nueve veces el Avemaría)`,
+                leader: 'Cielo Salazar'
             },
             {
                 title: 'Oración a San José',
-                content: 'Oh Santísimo José, esposo de María y padre adoptivo de Jesús. Os ruego que intercedáis por mí ante el Niño Jesús para que en esta Novena me conceda las gracias q[...]',
-                leader: 'Comunidad'
-            },
-            {
-                title: 'Consideración del Día (Diciembre 21)',
-                content: 'Por Hector Isaza:\n\nEn este primer día, el corazón se llena de la expectación de la inminente llegada del Redentor. La tradición de la Novena no es solo un recuerdo[...]',
-                leader: 'Hector Isaza',
+                content: `¡Oh Santísimo San José! Esposo de María y padre adoptivo de Jesús. 
+                Infinitas gracias doy a Dios porque te escogió para tan altos ministerios y te adornó con todos los dones proporcionados a tan excelente grandeza. 
+                Te ruego, por el amor que tuviste al Divino Niño, me abrases en fervorosos deseos de verle y recibirle sacramentalmente, mientras en su divina esencia le veo y le gozo en el cielo. 
+                
+                Amén. 
+                
+                (Se reza el Padrenuestro, el Avemaría y el Gloria).`,
+                leader: 'Fernando Castañeda'
             },
             {
                 title: 'Oración al Niño Jesús',
-                content: 'Acuérdate, ¡oh dulcísimo Niño Jesús!, que dijisteis: “Pedid y recibiréis, buscad y hallaréis, llamad y se os abrirá”. Confiando en tu palabra, vengo a pedirt[...]',
-                leader: 'Hector Isaza',
+                content: `Acordados ¡Oh dulcísimo Niño Jesús! Que dijiste a la Venerable Margarita del Santísimo Sacramento, y en persona suya a todos tus devotos, estas palabras tan consoladoras para nuestra pobre humanidad agobiada y doliente: “Todo lo que quieras pedir, pídelo por los méritos de mi infancia y nada te será negado”. 
+                
+                Llenos de confianza en Tí ¡Oh Jesús, que eres la misma verdad! Venimos a exponerte toda nuestra miseria. 
+                
+                Ayudadnos a llevar una vida santa, para conseguir una eternidad bienaventurada. Concédenos, por los méritos de tu encarnación y de tu infancia, la gracia... de la cual necesitamos tanto. 
+                
+                Nos entregamos a Tí ¡Oh Niño omnipotente! Seguros de que no quedará frustrada nuestra esperanza, y de que en virtud de tu divina promesa, acogerás y despacharas favorablemente nuestra súplica. 
+                
+                Amén.`,
+                leader: 'Luis Velez',
             },
             {
                 title: 'Gozos (Cantos de la Novena)',
-                content: '¡Dulce Jesús mío, mi Niño adorado! ¡Ven a nuestras almas! ¡Ven no tardes tanto!\n\n(Cantemos con alegría, esperando la llegada del Niño Dios, que trae consigo la[...]',
-                leader: 'Andres Felipe Montoya y Hector Isaza',
+                content: `Dulce Jesús mío, mi niño adorado, 
+                ¡Ven a nuestras almas! ¡Ven no tardes tanto! 
+                
+                ¡Oh sapiencia suma del Dios soberano, que al nivel de un niño te hayas rebajado! 
+                ¡Oh Divino Niño, ven para enseñarnos la prudencia que hace verdaderos sabios! 
+                ¡Ven a nuestras almas! ¡Ven no tardes tanto! 
+                
+                ¡Oh, Adonaí potente que, a Moisés hablando, de Israel al pueblo disteis los mandatos! 
+                ¡Ah! ven prontamente para rescatarnos.
+                Y que un niño débil muestre fuerte brazo! 
+                ¡Ven a nuestras almas! ¡Ven no tardes tanto! 
+                
+                ¡Oh raíz sagrada de José, que en lo alto presentan al orbe tu fragante nardo! 
+                ¡Dulcísimo Niño que has sido llamado lirio de los valles bella flor del campo! 
+                ¡Ven a nuestras almas! ¡Ven no tardes tanto!
+
+                ¡Llave de David que abre al desterrado las cerradas puertas del regio palacio! 
+                ¡Sácanos, Oh Niño, con tu blanda mano, de la cárcel triste que labró el pecado! 
+                ¡Ven a nuestras almas! ¡Ven no tardes tanto!
+                
+                ¡Oh lumbre de Oriente sol de eternos rayos, que entre las tinieblas tu esplendor veamos! 
+                ¡Niño tan preciado, dicha del cristiano, luzca la sonrisa de tus dulces labios! 
+                ¡Ven a nuestras almas! ¡Ven no tardes tanto! 
+                
+                ¡Espejo sin mancha Santo de los santos, sin igual imagen del Dios soberano! 
+                ¡Borra nuestras culpas, salva al desterrado y, en forma de Niño da al mísero amparo! 
+                ¡Ven a nuestras almas! ¡Ven no tardes tanto! 
+                
+                ¡Rey de las naciones, Emmanuel preclaro, de Israel anhelo, pastor del rebaño! 
+                ¡Niño que apacientas con suave cayado ya la oveja arisca, ya el cordero manso! 
+                ¡Ven a nuestras almas! ¡Ven no tardes tanto! 
+                
+                ¡Ábranse los cielos y llueva de lo alto Bienhechor rocío, como riego santo! 
+                ¡Ven hermoso Niño! Ven Dios humanado luce, hermosa estrella, brota flor del campo.
+                ¡Ven a nuestras almas! ¡Ven no tardes tanto!
+
+                ¡Ven que ya María previene sus brazos do su niño vean, en tiempo cercano! 
+                ¡Ven, que ya José, con anhelo sacro, se dispone a hacerse de tu amor sagrario! 
+                ¡Ven a nuestras almas! ¡Ven no tardes tanto! 
+                
+                ¡Del débil auxilio del doliente amparo, consuelo del triste, luz del desterrado! 
+                ¡Vida de mi vida, mi dueño adorado, mi constante amigo, mi divino hermano! 
+                ¡Ven a nuestras almas! ¡Ven no tardes tanto! 
+                
+                Vé ante mis ojos, de ti enamorados! Bese ya tus plantes, bese ya tus manos! 
+                Prosternado en tierra te tiendo los brazos, y aún más que mis frases te dice mi llanto! 
+                ¡Ven a nuestras almas! ¡Ven no tardes tanto ! 
+                
+                Ven, Salvador nuestro, por quien suspiramos, 
+                ¡Ven a nuestras almas! ¡Ven no tardes tanto!
+                
+                `,
+                leader: 'Blanca Pelaez y Hector Isaza',
             },
         ];
 
         const sponsors = [
             { name: 'Colombian Products and Services', role: 'Anfitrión Principal' },
-            { name: 'Tierra De Gigantes', role: 'Apoyo' },
-            { name: 'La Fonda de Danny', role: 'Apoyo' },
-            { name: 'Joselito Castro', role: 'Apoyo' },
-            { name: 'Global Cargo', role: 'Apoyo' },
-            { name: 'JR Tours', role: 'Apoyo' },
-            { name: 'Pinelime', role: 'Apoyo' },
-            { name: 'Luxury Escapes Marketing', role: 'Presentador' },
-            { name: 'UVL Marketing', role: 'Coordinación' },
-            { name: 'Orlando Rincón', role: 'Santa' },
-            { name: 'Edgar Parrado', role: 'Música Ambiente y Video' },
-            { name: 'Angelica y Carlos Gutierrez', role: 'Logística' },
-            { name: 'Linda Lucas', role: 'Organización' },
-            { name: 'Chalos', role: 'Apoyo General' },
-            { name: 'Hector Isaza', role: 'Organización' },
-            { name: 'Paola Medina y Andres F Montoya', role: 'Apoyo General' },
-            { name: 'Gustavo Padilla', role: 'Apoyo General' },
-            { name: 'Juan Castillo y su Orquesta', role: 'Presentación Musical' },
-            { name: 'Equipo de trabajo Colombian products', role: 'Agradecimientos Especiales' },
-            { name: 'Familia y amigos', role: 'Agradecimientos Especiales' },
+            { name: '1-800-DOLOR', role: 'Anfitrión' },
+            { name: 'Ofi-Store', role: 'Anfitrión' },
+            { name: 'La Fonda de Danny', role: 'Anfitrión' },
+            { name: 'Joselito Castro', role: 'Anfitrión' },
+            { name: 'Global Cargo', role: 'Anfitrión' },
+            { name: 'Luxury Escapes Marketing', role: 'Anfitrión' },
+            { name: 'UVL Marketing', role: 'Anfitrión' },
+            { name: 'Orlando Rincón', role: 'Apoyo' },
+            { name: 'Edgar Parrado', role: 'Apoyo' },
+            { name: 'Angelica y Carlos Gutierrez', role: 'Apoyo' },
+            { name: 'Chalos', role: 'Apoyo' },
+            { name: 'Juan Camilo Montoya', role: 'Apoyo' },
+            { name: 'Luis Velez, Hector Isaza y Blanca Pelaez', role: 'Presentadores' },
+            { name: 'Gustavo Padilla', role: 'Santa' },
+            { name: 'Juan Castillo y su Orquesta', role: 'Musica Ambiente y Video' },
+            { name: 'Colombian Products and Services', role: 'Logística' },
+            { name: 'Equipo de trabajo Colombian products', role: 'Organización' },
+            { name: 'Familia y amigos', role: 'Apoyo General' },
         ];
 
         document.addEventListener('DOMContentLoaded', () => {
